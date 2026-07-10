@@ -7,7 +7,7 @@
 <meta name="description" content="Kostenloses Live-Webinar: KI verständlich Schritt für Schritt — und wie du im KI-Zeitalter unverwechselbar wirst. Für Business-Menschen, auch mit über 50.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#0A1628; --navy2:#12233f; --ink:#3C4663;
@@ -127,18 +127,25 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .voicebar .wave i:nth-child(2){animation-delay:.15s}.voicebar .wave i:nth-child(3){animation-delay:.3s}.voicebar .wave i:nth-child(4){animation-delay:.45s}
 @keyframes wv{0%,100%{height:5px}50%{height:18px}}
 
-/* HOST DUO */
-.duo{position:relative}
-.duo-row{display:flex;gap:18px;justify-content:center}
-.photo{position:relative;width:100%;max-width:200px;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 22px 55px rgba(10,22,40,.28)}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-b);text-align:center;padding:10px;font-family:var(--mont);font-size:.72rem}
-.photo .ph .big{font-size:2rem;margin-bottom:6px}
-.photo::after{content:"";position:absolute;top:0;left:-75%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skew(-16deg);animation:sweep 5.5s ease-in-out infinite}
-.photo .nmtag{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(10,22,40,.94),transparent);padding:24px 10px 12px;text-align:center}
-.photo .nmtag .n{font-family:var(--serif);color:#fff;font-weight:700;font-size:1rem}
-.photo .nmtag .r{font-family:var(--mont);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-b)}
-.duo-plus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:50px;height:50px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.5rem;box-shadow:0 10px 24px rgba(218,165,32,.5)}
+/* HOST DUO — Polaroid-Stil (Marken-Element) */
+.duo{position:relative;padding-top:14px}
+.duo-row{display:flex;gap:26px;justify-content:center}
+/* Polaroid */
+.polaroid{position:relative;background:#fff;padding:12px 12px 0;border-radius:6px;box-shadow:0 20px 46px rgba(10,22,40,.22);width:100%;max-width:210px}
+.polaroid.tl{transform:rotate(-3deg)}
+.polaroid.tr{transform:rotate(3deg)}
+.polaroid.float{animation:pfloat 6s ease-in-out infinite}
+.polaroid.float.d{animation-delay:-3s}
+@keyframes pfloat{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-12px)}}
+.polaroid.tr.float{animation:pfloatR 6s ease-in-out infinite;animation-delay:-3s}
+@keyframes pfloatR{0%,100%{transform:rotate(3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-12px)}}
+.polaroid .pin{position:absolute;top:-11px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#F3D98A,#DAA520 55%,#A87C0A);box-shadow:0 4px 8px rgba(0,0,0,.35),inset 0 1px 2px rgba(255,255,255,.6);z-index:4}
+.polaroid .pic{position:relative;aspect-ratio:4/5;overflow:hidden;background:linear-gradient(160deg,#eaded0,#d8c9b6);border-radius:3px}
+.polaroid .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.polaroid .pic .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9a8a6f;text-align:center;font-family:var(--mont);font-size:.72rem;gap:4px}
+.polaroid .pic .ph .big{font-size:1.7rem}
+.polaroid .cap{font-family:'Pinyon Script',cursive;font-size:1.5rem;color:var(--navy);text-align:center;padding:8px 6px 14px;line-height:1}
+.duo-plus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;width:50px;height:50px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.5rem;box-shadow:0 10px 24px rgba(218,165,32,.5)}
 
 /* generic glass card paddings */
 .card{padding:28px}
@@ -281,6 +288,20 @@ details[open] .faq-q:after{content:"–"}
 .mkband .mk-in{position:relative;z-index:2;padding:44px;max-width:640px}
 .mkband h2{color:#fff}
 .mkband p{color:#e7ecf4;margin-top:10px}
+/* ---- PINNWAND (austauschbare Themen) ---- */
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 20px;padding-top:10px}
+.pnote{position:relative;background:#fff;border-radius:7px;padding:22px 18px 18px;box-shadow:0 14px 30px rgba(10,22,40,.14);transition:transform .25s ease,box-shadow .25s ease}
+.pnote:nth-child(4n+1){transform:rotate(-2.5deg)}
+.pnote:nth-child(4n+2){transform:rotate(1.8deg)}
+.pnote:nth-child(4n+3){transform:rotate(-1.4deg)}
+.pnote:nth-child(4n+4){transform:rotate(2.2deg)}
+.pnote:hover{transform:rotate(0deg) translateY(-6px);box-shadow:0 22px 44px rgba(10,22,40,.2);z-index:3}
+.pnote .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#F3D98A,#DAA520 55%,#A87C0A);box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6);animation:pinGlow 3s ease-in-out infinite}
+@keyframes pinGlow{0%,100%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 0 rgba(218,165,32,.5)}50%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 7px rgba(218,165,32,0)}}
+.pnote .tag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
+.pnote h3{font-family:var(--serif);font-size:1.1rem;color:var(--navy);line-height:1.2}
+@media(max-width:860px){.board{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.board{grid-template-columns:1fr}}
 footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:44px 24px;font-size:.88rem;position:relative;z-index:2}
 footer a{color:var(--gold-b);text-decoration:none}
 .socials{display:flex;gap:20px;justify-content:center;margin:0 0 26px;perspective:600px}
@@ -373,19 +394,19 @@ footer a{color:var(--gold-b);text-decoration:none}
       <audio id="voiceAudio" preload="none" src="assets/voiceover.mp3"></audio>
     </div>
 
-    <!-- HOST-DUO -->
+    <!-- HOST-DUO im Polaroid-Marken-Stil -->
     <div class="duo">
       <div class="duo-plus">+</div>
       <div class="duo-row">
-        <div class="photo float">
-          <!-- FOTO CLAUDIA: <img src="assets/claudia.jpg" alt="Claudia Conen"> -->
-          <div class="ph"><span class="big">📷</span>Foto<br>Claudia</div>
-          <div class="nmtag"><div class="n">Claudia Conen</div><div class="r">Wirkung &amp; Positionierung</div></div>
+        <div class="polaroid tl float">
+          <span class="pin"></span>
+          <div class="pic"><!-- FOTO CLAUDIA: <img src="assets/claudia.jpg" alt="Claudia Conen"> --><div class="ph"><span class="big">📷</span>Dein Foto</div></div>
+          <div class="cap">Claudia Conen</div>
         </div>
-        <div class="photo float d">
-          <!-- FOTO GABI: <img src="assets/gabi.jpg" alt="Gabi Lindemann"> -->
-          <div class="ph"><span class="big">📷</span>Foto<br>Gabi</div>
-          <div class="nmtag"><div class="n">Gabi Lindemann</div><div class="r">KI &amp; Claude-Expertin</div></div>
+        <div class="polaroid tr float d">
+          <span class="pin"></span>
+          <div class="pic"><!-- FOTO GABI: <img src="assets/gabi.jpg" alt="Gabi Lindemann"> --><div class="ph"><span class="big">📷</span>Dein Foto</div></div>
+          <div class="cap">Gabi Lindemann</div>
         </div>
       </div>
     </div>
@@ -668,6 +689,28 @@ footer a{color:var(--gold-b);text-decoration:none}
   </div>
   <div class="mq" id="mqTop"><div class="mq-row l" id="rowL"></div></div>
   <div class="mq" id="mqBot"><div class="mq-row r" id="rowR"></div></div>
+</section>
+
+<!-- PINNWAND: austauschbare Themen -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Unsere Pinnwand</span>
+      <h2>Themen, die dich <span class="shimmer">weiterbringen</span></h2>
+      <p>Kostbare Impulse für die Business-Welt — wir tauschen die Themen regelmäßig aus.</p>
+    </div>
+    <!-- 👉 THEMEN EINFACH AUSTAUSCHEN: Text in .pnote ändern -->
+    <div class="board">
+      <div class="pnote"><span class="pin"></span><span class="tag">Business</span><h3>Kostbare Tipps für die Business-Welt</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Klartext</span><h3>Kann KI mich ersetzen — und wo ist sie sinnvoll?</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Claude</span><h3>Claudes Geheimnisse — Einblicke, die kaum jemand kennt</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Positionierung</span><h3>Was macht dich unverwechselbar im KI-Zeitalter?</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Meistgefragt</span><h3>Was die meisten über KI &amp; Claude wissen wollen</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Tool-Tipp</span><h3>Welche KI-Tools wir außerdem nutzen</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Schritt für Schritt</span><h3>Dein erster KI-Workflow — ganz ohne Technik-Angst</h3></div>
+      <div class="pnote"><span class="pin"></span><span class="tag">Mindset</span><h3>Von Angst zu Neugier — in 3 einfachen Schritten</h3></div>
+    </div>
+  </div>
 </section>
 
 <!-- MEISTGESUCHTE FRAGEN (SEO/GEO/LLM) -->
