@@ -221,6 +221,51 @@ details[open] .faq-q:after{content:"–"}
 .rform .btn{margin-top:6px}
 .rnote{font-size:.82rem;color:var(--ink);margin-top:14px}
 
+/* ---- Foto-Slider (zwei Reihen, gegenläufig) ---- */
+.mq{overflow:hidden;position:relative;padding:6px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq + .mq{margin-top:16px}
+.mq-row{display:flex;gap:16px;width:max-content}
+.mq-row.l{animation:mqL 46s linear infinite}
+.mq-row.r{animation:mqR 52s linear infinite}
+.mq:hover .mq-row{animation-play-state:paused}
+@keyframes mqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mq-item{width:150px;height:150px;border-radius:18px;flex-shrink:0;position:relative;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 12px 30px rgba(10,22,40,.18)}
+.mq-item img{width:100%;height:100%;object-fit:cover}
+.mq-item .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-b);font-family:var(--mont);font-size:.66rem;text-align:center;gap:4px}
+.mq-item .ph .big{font-size:1.5rem}
+.mq-item::after{content:"";position:absolute;top:0;left:-75%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skew(-16deg);animation:sweep 6s ease-in-out infinite}
+/* ---- GEO/LLM-Fragen (pulsierende Glaskacheln) ---- */
+.qgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qtile{padding:0;overflow:hidden;border-radius:18px;animation:qpulse 3.4s ease-in-out infinite}
+.qtile:nth-child(2n){animation-delay:-1.7s}
+@keyframes qpulse{0%,100%{box-shadow:0 22px 55px rgba(10,22,40,.12),inset 0 1px 0 rgba(255,255,255,.95),0 0 0 0 rgba(218,165,32,.4)}50%{box-shadow:0 22px 55px rgba(10,22,40,.14),inset 0 1px 0 rgba(255,255,255,.95),0 0 0 8px rgba(218,165,32,0)}}
+.qtile summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--mont);font-weight:700;color:var(--navy);font-size:1rem}
+.qtile summary::-webkit-details-marker{display:none}
+.qtile summary .q-ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .3s}
+.qtile[open] summary .q-ic{transform:rotate(45deg)}
+.qtile .q-a{padding:0 22px 20px;color:var(--ink);font-size:.97rem}
+.qtile[open]{animation:none}
+/* ---- Mini-Check (Gamification) ---- */
+.check{padding:44px}
+.check .q{font-family:var(--serif);color:var(--navy);font-size:1.3rem;text-align:center;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:720px;margin:0 auto}
+.chip{font-family:var(--mont);font-weight:600;font-size:.95rem;color:var(--navy);background:rgba(255,255,255,.7);border:1.5px solid var(--gold);border-radius:30px;padding:12px 20px;cursor:pointer;transition:all .2s;user-select:none}
+.chip:hover{transform:translateY(-2px)}
+.chip.on{background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;box-shadow:0 8px 20px rgba(218,165,32,.35)}
+.meterwrap{max-width:520px;margin:26px auto 0}
+.meterwrap .lbl{display:flex;justify-content:space-between;font-family:var(--mont);font-size:.8rem;font-weight:700;color:var(--gold-t);margin-bottom:6px}
+.meter{height:14px;border-radius:10px;background:rgba(10,22,40,.1);overflow:hidden}
+.meter .mf{height:100%;width:0;border-radius:10px;background:linear-gradient(90deg,#DAA520,#EAC76E);transition:width .5s ease;box-shadow:0 0 12px rgba(218,165,32,.5)}
+.check .result{text-align:center;margin-top:20px;font-family:var(--serif);font-size:1.25rem;color:var(--navy);min-height:34px}
+.check .result b{color:var(--gold-d)}
+/* ---- Mensch-KI Bildband ---- */
+.mkband{position:relative;border-radius:24px;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(120deg,#0A1628,#12233f)}
+.mkband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.mkband .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(234,199,110,.5);font-family:var(--mont);font-size:.8rem}
+.mkband .mk-in{position:relative;z-index:2;padding:44px;max-width:640px}
+.mkband h2{color:#fff}
+.mkband p{color:#e7ecf4;margin-top:10px}
 footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:40px 24px;font-size:.88rem;position:relative;z-index:2}
 footer a{color:var(--gold-b);text-decoration:none}
 
@@ -323,6 +368,21 @@ footer a{color:var(--gold-b);text-decoration:none}
       <div class="glass card float"><div class="ic-lg">😮‍💨</div><h3>Kennst du das?</h3><p>„Alle reden von KI — und ich verstehe nur Bahnhof." Genau da holen wir dich ab.</p></div>
       <div class="glass card float d"><div class="ic-lg">🚀</div><h3>Das Ziel</h3><p>KI als deinen persönlichen Beschleuniger nutzen — statt dich davon überrollen zu lassen.</p></div>
       <div class="glass card float"><div class="ic-lg">🤝</div><h3>Das Versprechen</h3><p>Gemeinsam stark ist besser als allein stark. Du gehst mit einem klaren nächsten Schritt raus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENSCH & KI BILDBAND -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="mkband">
+      <!-- BILD MENSCH & KI: <img src="assets/mensch-ki.jpg" alt="Mensch & KI Hand in Hand"> -->
+      <div class="ph">📷 Bild „Mensch &amp; KI"</div>
+      <div class="mk-in">
+        <span class="eyebrow" style="color:var(--gold-b)">Mensch &amp; KI</span>
+        <h2>Nicht Mensch <i>gegen</i> KI.<br><span class="shimmer">Mensch mit KI.</span></h2>
+        <p>KI ersetzt dich nicht — sie verstärkt das, was dich ausmacht. Genau das zeigen wir dir.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -431,6 +491,32 @@ footer a{color:var(--gold-b);text-decoration:none}
   </div>
 </section>
 
+<!-- MINI-CHECK (Gamification) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Kurzer Selbst-Check</span>
+      <h2>Erkennst du dich <span class="shimmer">wieder?</span></h2>
+      <p>Tippe an, was auf dich zutrifft — und sieh, wie sehr dieses Webinar für dich gemacht ist.</p>
+    </div>
+    <div class="glass check">
+      <div class="chips" id="chips">
+        <span class="chip" data-p="20">😟 KI überfordert mich</span>
+        <span class="chip" data-p="20">⏳ Mir fehlt die Zeit, mich einzuarbeiten</span>
+        <span class="chip" data-p="20">🌫️ Ich gehe unter im Meer der Angebote</span>
+        <span class="chip" data-p="20">🙋‍♀️ Ich will unverwechselbar werden</span>
+        <span class="chip" data-p="20">🤝 Ich will nicht allein kämpfen</span>
+      </div>
+      <div class="meterwrap">
+        <div class="lbl"><span>Dein Match mit dem Webinar</span><span id="matchpct">0%</span></div>
+        <div class="meter"><div class="mf" id="mf"></div></div>
+      </div>
+      <div class="result" id="checkResult">Tippe oben an, was auf dich zutrifft…</div>
+      <div style="text-align:center;margin-top:8px"><a href="#anmelden" class="btn btn-gold" id="checkCta" style="display:none">Perfekt — sichere dir deinen Platz →</a></div>
+    </div>
+  </div>
+</section>
+
 <!-- VORHER/NACHHER -->
 <section class="sec">
   <div class="wrap">
@@ -535,6 +621,50 @@ footer a{color:var(--gold-b);text-decoration:none}
   </div>
 </section>
 
+<!-- FOTO-SLIDER: MENSCHEN, DIE UNS BEGEGNET SIND -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Gemeinsam statt allein</span>
+      <h2>Menschen, die uns schon <span class="shimmer">begegnet sind</span></h2>
+      <p>Ein kleiner Ausschnitt aus vielen wunderbaren Begegnungen &amp; Zusammenarbeiten.</p>
+    </div>
+  </div>
+  <div class="mq" id="mqTop"><div class="mq-row l" id="rowL"></div></div>
+  <div class="mq" id="mqBot"><div class="mq-row r" id="rowR"></div></div>
+</section>
+
+<!-- MEISTGESUCHTE FRAGEN (SEO/GEO/LLM) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Die meistgesuchten Fragen</span>
+      <h2>Was Menschen im <span class="shimmer">KI-Zeitalter</span> fragen</h2>
+      <p>Tippe eine Frage an — die Antwort erscheint.</p>
+    </div>
+    <div class="qgrid">
+      <details class="glass qtile"><summary><span>Wie hebe ich mich als Persönlichkeit aus der Masse heraus?</span><span class="q-ic">+</span></summary><div class="q-a">Indem du auf das setzt, was keine KI kopieren kann: deine Persönlichkeit, deine Stimme, deine Haltung. Im Webinar zeigen wir dir Schritt für Schritt, wie du genau das sichtbar machst — und unverwechselbar wirst.</div></details>
+      <details class="glass qtile"><summary><span>Schaffe ich es überhaupt noch, mit KI umzugehen?</span><span class="q-ic">+</span></summary><div class="q-a">Ja — garantiert. Du brauchst kein Technik-Studium und kein Vorwissen. Wenn zwei Frauen mit über 50 das schaffen, schaffst du das auch. Wir erklären alles langsam und in einfachen Schritten.</div></details>
+      <details class="glass qtile"><summary><span>Wofür ist Claude eigentlich nutzbar?</span><span class="q-ic">+</span></summary><div class="q-a">Claude ist eine KI, die dir beim Schreiben, Denken, Planen und Gestalten hilft: Texte, Ideen, Angebote, Struktur, sogar Design und Websites. Im Webinar siehst du live, wie einfach das geht.</div></details>
+      <details class="glass qtile"><summary><span>Kann ich KI lernen, auch wenn ich über 50 bin?</span><span class="q-ic">+</span></summary><div class="q-a">Absolut. Alter ist kein Hindernis — Erfahrung ist sogar ein Vorteil. Unsere Teilnehmer starten oft komplett bei null und haben noch am selben Abend ihr erstes Ergebnis.</div></details>
+      <details class="glass qtile"><summary><span>Wie werde ich im KI-Zeitalter unverwechselbar?</span><span class="q-ic">+</span></summary><div class="q-a">Indem du KI als Beschleuniger nutzt, aber deine menschliche Wirkung in den Mittelpunkt stellst. Genau diese Kombination — Technik + Persönlichkeit — ist der Kern dieses Webinars.</div></details>
+      <details class="glass qtile"><summary><span>Was ist der Unterschied zwischen Claude, Claude Code und Claude Design?</span><span class="q-ic">+</span></summary><div class="q-a">Claude ist die KI zum Schreiben &amp; Denken, Claude Code hilft beim Bauen von Websites/Technik, und Claude Design bei Grafiken &amp; Layout. Für Einsteiger erklären wir jedes einfach und zeigen, wo du anfängst.</div></details>
+      <details class="glass qtile"><summary><span>Wie nutze ich KI, ohne meine Persönlichkeit zu verlieren?</span><span class="q-ic">+</span></summary><div class="q-a">Die KI liefert die Rohform — du gibst ihr deine Stimme, deine Beispiele, dein Gefühl. So bleibt alles echt und unverwechselbar deins. Wir zeigen dir genau diesen Dreh.</div></details>
+      <details class="glass qtile"><summary><span>Womit fange ich als kompletter Einsteiger an?</span><span class="q-ic">+</span></summary><div class="q-a">Mit einem einzigen ersten Schritt — und den machst du im Webinar gemeinsam mit uns. Danach bekommst du ein Starter-Set, mit dem du sofort weitermachen kannst.</div></details>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Wie hebe ich mich als Persönlichkeit aus der Masse heraus?","acceptedAnswer":{"@type":"Answer","text":"Indem du auf das setzt, was keine KI kopieren kann: deine Persönlichkeit, deine Stimme, deine Haltung. Im Webinar zeigen wir Schritt für Schritt, wie du das sichtbar machst und unverwechselbar wirst."}},
+{"@type":"Question","name":"Schaffe ich es überhaupt noch, mit KI umzugehen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Du brauchst kein Technik-Studium und kein Vorwissen. Alles wird langsam und in einfachen Schritten erklärt — auch für Einsteiger mit über 50."}},
+{"@type":"Question","name":"Wofür ist Claude nutzbar?","acceptedAnswer":{"@type":"Answer","text":"Claude ist eine KI, die beim Schreiben, Denken, Planen und Gestalten hilft: Texte, Ideen, Angebote, Struktur, Design und Websites."}},
+{"@type":"Question","name":"Kann ich KI lernen, auch wenn ich über 50 bin?","acceptedAnswer":{"@type":"Answer","text":"Ja. Alter ist kein Hindernis, Erfahrung ist ein Vorteil. Teilnehmer starten oft bei null und haben am selben Abend ihr erstes Ergebnis."}},
+{"@type":"Question","name":"Wie werde ich im KI-Zeitalter unverwechselbar?","acceptedAnswer":{"@type":"Answer","text":"Indem du KI als Beschleuniger nutzt und deine menschliche Wirkung in den Mittelpunkt stellst. Diese Kombination aus Technik und Persönlichkeit ist der Kern des Webinars."}},
+{"@type":"Question","name":"Was ist der Unterschied zwischen Claude, Claude Code und Claude Design?","acceptedAnswer":{"@type":"Answer","text":"Claude ist die KI zum Schreiben und Denken, Claude Code hilft beim Bauen von Websites und Technik, Claude Design bei Grafiken und Layout."}}
+]}
+</script>
+
 <!-- BONUS -->
 <section class="sec">
   <div class="wrap">
@@ -620,6 +750,38 @@ var mini=document.getElementById('terminTextMini'); if(mini) mini.textContent=WE
     elD.textContent=Math.floor(diff/86400000);elH.textContent=pad(Math.floor(diff%86400000/3600000));elM.textContent=pad(Math.floor(diff%3600000/60000));elS.textContent=pad(Math.floor(diff%60000/1000));}
   tick();setInterval(tick,1000);
 })();
+// FOTO-SLIDER aufbauen (Platzhalter; echte Fotos später in assets/menschen/ ablegen und src setzen)
+(function(){
+  var namesL=['Anna','Markus','Petra','Jörg','Sabine','Tom','Lena','Kai','Ute','Ben'];
+  var namesR=['Clara','Dirk','Maria','Ralf','Nina','Ole','Eva','Sven','Rita','Max'];
+  function build(row,names){
+    if(!row) return; var html='';
+    for(var d=0;d<2;d++){ names.forEach(function(n){
+      html+='<div class="mq-item"><!-- FOTO: <img src="assets/menschen/'+n.toLowerCase()+'.jpg" alt="'+n+'"> --><div class="ph"><span class="big">📷</span>'+n+'</div></div>';
+    });}
+    row.innerHTML=html;
+  }
+  build(document.getElementById('rowL'),namesL);
+  build(document.getElementById('rowR'),namesR);
+})();
+
+// MINI-CHECK (Gamification)
+(function(){
+  var chips=document.querySelectorAll('#chips .chip');
+  var mf=document.getElementById('mf'),pct=document.getElementById('matchpct'),res=document.getElementById('checkResult'),cta=document.getElementById('checkCta');
+  if(!chips.length) return;
+  function update(){
+    var n=0; chips.forEach(function(c){if(c.classList.contains('on'))n++;});
+    var p=Math.min(100,n*20);
+    mf.style.width=p+'%'; pct.textContent=p+'%';
+    if(p===0){res.textContent='Tippe oben an, was auf dich zutrifft…';cta.style.display='none';}
+    else if(p<=40){res.innerHTML='Du bist <b>genau richtig</b> hier — wir holen dich ab.';cta.style.display='inline-block';}
+    else if(p<=80){res.innerHTML='<b>Dieses Webinar ist wie für dich gemacht.</b>';cta.style.display='inline-block';}
+    else {res.innerHTML='🎯 <b>100% Match!</b> Verpass es auf keinen Fall.';cta.style.display='inline-block';}
+  }
+  chips.forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');update();});});
+})();
+
 (function(){
   var els=document.querySelectorAll('.grid-3 .glass,.grid-2 .glass,.steps .glass,.split .glass,.split .glass-dark,.bonus');
   function show(el){el.style.opacity=1;el.style.transform='none';}
