@@ -4,7 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Unverwechselbar mit KI — Das Live-Webinar mit Claudia Conen & Gabi Lindemann</title>
-<meta name="description" content="Kostenloses Live-Webinar: KI verständlich Schritt für Schritt — und wie du im KI-Zeitalter unverwechselbar wirst. Für Business-Menschen, auch mit über 50.">
+<meta name="description" content="Kostenloses Live-Webinar: KI verständlich Schritt für Schritt — und wie du im KI-Zeitalter unverwechselbar wirst. Für Business-Menschen, auch mit über 50. Mit Claudia Conen & Gabi Lindemann.">
+<link rel="canonical" href="https://claudiaconen.github.io/Webinar-Unverwechselbar/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unverwechselbar mit KI — Kostenloses Live-Webinar">
+<meta property="og:description" content="KI verständlich Schritt für Schritt — und wie du im KI-Zeitalter unverwechselbar wirst. Auch mit über 50. Mit Claudia Conen & Gabi Lindemann.">
+<meta property="og:image" content="https://claudiaconen.github.io/Webinar-Unverwechselbar/assets/hero-claudia-gabi.jpg">
+<meta property="og:url" content="https://claudiaconen.github.io/Webinar-Unverwechselbar/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Unverwechselbar mit KI — Kostenloses Live-Webinar">
+<meta name="twitter:description" content="KI verständlich Schritt für Schritt — unverwechselbar werden im KI-Zeitalter. Mit Claudia Conen & Gabi Lindemann.">
+<meta name="twitter:image" content="https://claudiaconen.github.io/Webinar-Unverwechselbar/assets/hero-claudia-gabi.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -137,6 +147,9 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .herofoto::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:skew(-16deg);animation:sweep 6.5s ease-in-out infinite;pointer-events:none}
 .herofoto .cred{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(10,22,40,.72);backdrop-filter:blur(8px);border:1px solid rgba(218,165,32,.35);border-radius:12px;padding:9px 12px;color:#f3ede0;font-family:var(--mont);font-size:.74rem;font-weight:600;text-align:center}
 .herofoto .cred b{color:var(--gold-b)}
+.hf-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;border:none;cursor:pointer;background:rgba(218,165,32,.92);color:#2a2008;font-size:1.4rem;padding-left:5px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.4);z-index:3}
+.hf-play::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(234,199,110,.7);animation:vpulse 2s ease-out infinite}
+.hf-play:hover{background:#EAC76E}
 .hf-badge{position:absolute;top:-16px;right:-16px;background:linear-gradient(145deg,#F3D98A,#DAA520 60%,#A87C0A);color:#2a2008;font-family:var(--mont);font-weight:800;font-size:.82rem;line-height:1.15;text-align:center;border-radius:16px;padding:12px 14px;box-shadow:0 12px 26px rgba(218,165,32,.45);animation:float 5s ease-in-out infinite}
 .hf-badge b{font-family:var(--serif);font-size:1.5rem;display:block}
 .hf-badge span{font-weight:600;font-size:.72rem}
@@ -277,9 +290,9 @@ details[open] .faq-q:after{content:"–"}
 .qtile{padding:0;overflow:hidden;border-radius:18px;animation:qpulse 3.4s ease-in-out infinite}
 .qtile:nth-child(2n){animation-delay:-1.7s}
 @keyframes qpulse{0%,100%{box-shadow:0 22px 55px rgba(10,22,40,.12),inset 0 1px 0 rgba(255,255,255,.95),0 0 0 0 rgba(218,165,32,.4)}50%{box-shadow:0 22px 55px rgba(10,22,40,.14),inset 0 1px 0 rgba(255,255,255,.95),0 0 0 8px rgba(218,165,32,0)}}
-.qtile summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--mont);font-weight:700;color:var(--navy);font-size:1rem}
+.qtile summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:var(--mont);font-weight:700;color:var(--navy);font-size:1rem;min-height:64px}
 .qtile summary::-webkit-details-marker{display:none}
-.qtile summary .q-ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .3s}
+.qtile summary .q-ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-weight:800;transition:transform .3s;box-shadow:0 4px 10px rgba(218,165,32,.35)}
 .qtile[open] summary .q-ic{transform:rotate(45deg)}
 .qtile .q-a{padding:0 22px 20px;color:var(--ink);font-size:.97rem}
 .qtile[open]{animation:none}
@@ -339,9 +352,18 @@ footer a{color:var(--gold-b);text-decoration:none}
 @media(prefers-reduced-motion:reduce){.socials a{animation:none}}
 
 @media(max-width:880px){
-  .hero-grid,.grid-2,.grid-3,.steps,.split,.up-cards{grid-template-columns:1fr}
+  .hero-grid,.grid-2,.grid-3,.steps,.split,.up-cards,.qgrid,.tiles-2{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .demo{flex-direction:column;text-align:center}
+  body{padding-bottom:76px} /* Platz für Sticky-Button */
+}
+/* Sticky-CTA nur auf dem Handy */
+.sticky-cta{display:none}
+@media(max-width:880px){
+  .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:rgba(10,22,40,.96);backdrop-filter:blur(10px);border-top:1px solid rgba(218,165,32,.4);box-shadow:0 -8px 24px rgba(10,22,40,.3)}
+  .sticky-cta .st-txt{font-family:var(--mont);font-weight:700;font-size:.82rem;color:#f3ede0;line-height:1.15}
+  .sticky-cta .st-txt span{display:block;font-weight:500;font-size:.72rem;color:var(--gold-b)}
+  .sticky-cta a{flex-shrink:0;font-family:var(--mont);font-weight:800;font-size:.9rem;background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;padding:12px 20px;border-radius:30px;text-decoration:none}
 }
 </style>
 </head>
@@ -416,8 +438,9 @@ footer a{color:var(--gold-b);text-decoration:none}
     <!-- HERO-FOTO: starkes, professionelles Bild (Claudia & Gabi) -->
     <div class="herofoto-wrap">
       <div class="herofoto">
-        <!-- FOTO: <img src="assets/hero-claudia-gabi.jpg" alt="Claudia Conen & Gabi Lindemann"> -->
-        <div class="ph"><span class="big">📷</span><span>Professionelles Foto<br>Claudia &amp; Gabi</span><span class="hint">quer oder hoch · warmes Licht</span></div>
+        <img src="assets/hero-claudia-gabi.jpg" alt="Claudia Conen &amp; Gabi Lindemann">
+        <!-- TEASER-VIDEO: später href/onclick auf dein Video setzen -->
+        <button class="hf-play" aria-label="Teaser ansehen" onclick="alert('🎬 Hier kommt dein Teaser-Video rein.')">▶</button>
         <div class="cred">★★★★★ &nbsp;bekannt aus <b>RTL · Sat.1 · „Power of AI"</b></div>
       </div>
       <div class="hf-badge"><b>2</b> Expertinnen<br><span>1 klares Ziel</span></div>
@@ -655,18 +678,18 @@ footer a{color:var(--gold-b);text-decoration:none}
     </div>
     <div class="grid-2">
       <div class="glass hcard">
-        <div class="pic float"><div class="ph">📷 Foto Claudia</div></div>
+        <div class="pic float"><img src="assets/claudia.jpg" alt="Claudia Conen"></div>
         <div>
           <h3>Claudia Conen</h3>
-          <div class="ro">Wirkung &amp; Positionierung</div>
+          <div class="ro">KI-Managerin · Wirkung &amp; Positionierung</div>
           <p>Sie macht Menschen unverwechselbar — mit hörbarer Persönlichkeit, die in Sekunden Vertrauen schafft. Bekannt aus RTL, Sat.1 &amp; „Power of AI".</p>
         </div>
       </div>
       <div class="glass hcard">
-        <div class="pic float d"><div class="ph">📷 Foto Gabi</div></div>
+        <div class="pic float d"><img src="assets/gabi.jpg" alt="Gabi Lindemann"></div>
         <div>
           <h3>Gabi Lindemann</h3>
-          <div class="ro">KI &amp; Claude-Expertin</div>
+          <div class="ro">Handelssystem-Expertin · KI-Praxis</div>
           <p>Sie übersetzt KI in einfache, machbare Schritte — von Claude über Claude Code bis Claude Design. Damit du sofort loslegst, ganz ohne Technik-Angst.</p>
         </div>
       </div>
@@ -806,7 +829,7 @@ footer a{color:var(--gold-b);text-decoration:none}
       <span class="mini-termin">📅 <span id="terminTextMini">Termin folgt</span></span>
       <h2>Sei dabei — <span class="shimmer">kostenlos</span></h2>
       <p>Trag dich ein und werde unverwechselbar im KI-Zeitalter. Mit Claudia Conen &amp; Gabi Lindemann.</p>
-      <form class="rform" name="webinar" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form class="rform" name="webinar" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html" onsubmit="return wbSubmit(event)">
         <input type="hidden" name="form-name" value="webinar">
         <p style="display:none"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
         <input type="text" name="vorname" placeholder="Dein Vorname" required>
@@ -817,6 +840,16 @@ footer a{color:var(--gold-b);text-decoration:none}
     </div>
   </div>
 </section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationEvent","name":"Unverwechselbar mit KI — Kostenloses Live-Webinar","description":"KI verständlich Schritt für Schritt und wie du im KI-Zeitalter unverwechselbar wirst. Für Einsteiger und Business-Menschen, auch mit über 50.","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-07-30T19:00:00+02:00","location":{"@type":"VirtualLocation","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/"},"image":"https://claudiaconen.github.io/Webinar-Unverwechselbar/assets/hero-claudia-gabi.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/#anmelden"},"performer":[{"@type":"Person","name":"Claudia Conen","jobTitle":"KI-Managerin"},{"@type":"Person","name":"Gabi Lindemann","jobTitle":"Handelssystem-Expertin"}],"organizer":{"@type":"Person","name":"Claudia Conen","url":"https://claudiaconen.com"}}
+</script>
+
+<!-- STICKY-CTA (Handy) -->
+<div class="sticky-cta">
+  <div class="st-txt">Kostenloses Live-Webinar<span>Begrenzte Plätze</span></div>
+  <a href="#anmelden">Platz sichern →</a>
+</div>
 
 <footer>
   <div class="socials">
@@ -844,10 +877,18 @@ var mini=document.getElementById('terminTextMini'); if(mini) mini.textContent=WE
   var elD=document.getElementById('cd-d'),elH=document.getElementById('cd-h'),elM=document.getElementById('cd-m'),elS=document.getElementById('cd-s');
   function pad(n){return (n<10?'0':'')+n;}
   function tick(){var diff=ziel-new Date().getTime();
-    if(isNaN(ziel)||diff<0){elD.textContent='0';elH.textContent='00';elM.textContent='00';elS.textContent='00';return;}
+    if(isNaN(ziel)||diff<0){var cd=document.getElementById('countdown');if(cd)cd.style.display='none';var tt=document.getElementById('terminText');if(tt)tt.textContent='Neuer Termin folgt in Kürze';return;}
     elD.textContent=Math.floor(diff/86400000);elH.textContent=pad(Math.floor(diff%86400000/3600000));elM.textContent=pad(Math.floor(diff%3600000/60000));elS.textContent=pad(Math.floor(diff%60000/1000));}
   tick();setInterval(tick,1000);
 })();
+// ANMELDUNG → Dankeseite
+// Hinweis: Auf Netlify erfasst das Formular automatisch + leitet auf danke.html.
+// Auf GitHub Pages (kein Backend) leiten wir per JS auf die Dankeseite weiter.
+function wbSubmit(e){
+  if(!/netlify/.test(location.host)){ e.preventDefault(); location.href='danke.html'; }
+  return true;
+}
+
 // VOICEOVER-PLAYER
 function toggleVoice(){
   var a=document.getElementById('voiceAudio'), bar=document.getElementById('voicebar'), btn=document.getElementById('voicePlay');

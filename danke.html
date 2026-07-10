@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danke — du bist dabei! · Unverwechselbar mit KI</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0A1628;--ink:#3C4663;--gold:#DAA520;--gold-b:#EAC76E;--gold-d:#A87C0A;--cream:#FBF6EC;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mont:'Montserrat',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:radial-gradient(900px 500px at 50% -10%,rgba(234,199,110,.25),transparent 60%),linear-gradient(180deg,#FFFDF9,#FBF3E4);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+.card{max-width:560px;background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(253,250,244,.6));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.7);border-radius:26px;box-shadow:0 30px 70px rgba(10,22,40,.14),inset 0 1px 0 rgba(255,255,255,.9);padding:50px 40px}
+.check{width:84px;height:84px;border-radius:50%;margin:0 auto 22px;background:linear-gradient(180deg,#F3D98A,#DAA520 60%,#A87C0A);color:#2a2008;display:flex;align-items:center;justify-content:center;font-size:2.4rem;box-shadow:0 12px 30px rgba(218,165,32,.4)}
+.eyebrow{font-family:var(--mont);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:700;color:var(--gold-d)}
+h1{font-family:var(--serif);color:var(--navy);font-size:clamp(1.9rem,5vw,2.6rem);margin:8px 0 12px}
+.shimmer{background:linear-gradient(135deg,#d4af37,#f7e7ce,#c9a961,#f7e7ce,#d4af37);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 5s ease-in-out infinite}
+@keyframes shim{0%,100%{background-position:0% center}50%{background-position:200% center}}
+p{font-size:1.05rem;line-height:1.6;margin-bottom:10px}
+.steps{text-align:left;margin:22px auto 0;max-width:420px;list-style:none}
+.steps li{position:relative;padding:10px 0 10px 34px;border-bottom:1px solid rgba(218,165,32,.2);font-size:.98rem}
+.steps li:last-child{border-bottom:none}
+.steps li:before{content:"✓";position:absolute;left:0;top:10px;color:var(--gold-d);font-weight:800}
+.back{display:inline-block;margin-top:26px;font-family:var(--mont);font-weight:700;font-size:.95rem;background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;text-decoration:none;padding:14px 28px;border-radius:40px;box-shadow:0 10px 26px rgba(218,165,32,.35)}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">✓</div>
+    <span class="eyebrow">Geschafft</span>
+    <h1>Du bist <span class="shimmer">dabei!</span></h1>
+    <p>Herzlich willkommen — schön, dass du dir deinen Platz gesichert hast. 🎉</p>
+    <p><b>So geht's weiter:</b></p>
+    <ul class="steps">
+      <li>Prüfe dein Postfach — dein Zugangslink ist unterwegs (schau ggf. im Spam nach).</li>
+      <li>Trag dir den Termin gleich in den Kalender ein.</li>
+      <li>Freu dich auf 90 Minuten, die dich unverwechselbar machen.</li>
+    </ul>
+    <a class="back" href="index.html">← Zurück zur Startseite</a>
+  </div>
+</body>
+</html>
