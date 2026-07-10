@@ -88,7 +88,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .nav-in{display:flex;align-items:center;justify-content:space-between;padding:13px 24px;max-width:1140px;margin:0 auto}
 .brand{font-family:var(--serif);font-size:1.32rem;color:var(--navy);text-decoration:none;font-weight:700}
 .brand b{color:var(--gold-d)}.brand .amp{color:var(--gold);font-weight:400;margin:0 2px}
-.nav-cta{font-family:var(--mont);font-weight:800;font-size:.84rem;background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;padding:11px 22px;border-radius:30px;text-decoration:none;box-shadow:0 6px 18px rgba(218,165,32,.35)}
+.nav-cta{font-family:var(--mont);font-weight:800;font-size:.84rem;background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;padding:11px 22px;border-radius:30px;text-decoration:none;box-shadow:0 6px 18px rgba(218,165,32,.35);animation:ctaGlow 2.4s ease-in-out infinite;transition:transform .2s ease}
+.nav-cta:hover{transform:translateY(-2px) scale(1.04)}
 
 /* HERO */
 .hero{position:relative;padding:60px 0 84px;overflow:hidden}
@@ -273,7 +274,16 @@ details[open] .faq-q:after{content:"–"}
 .faq-a{padding:0 22px 18px;color:var(--ink);font-size:.98rem}
 
 /* register */
-.regbox{padding:50px 42px;max-width:660px;margin:0 auto;text-align:center}
+#anmelden{position:relative;overflow:hidden}
+#anmelden::before{content:"";position:absolute;top:50%;left:50%;width:900px;height:600px;transform:translate(-50%,-50%);z-index:0;border-radius:46% 54% 52% 48%;background:radial-gradient(circle,rgba(10,22,40,.5),rgba(18,35,63,.22) 48%,transparent 72%);filter:blur(16px);animation:navyDrift 9s ease-in-out infinite;pointer-events:none}
+@keyframes navyDrift{0%,100%{transform:translate(-52%,-50%) scale(1) rotate(0deg)}50%{transform:translate(-48%,-52%) scale(1.1) rotate(8deg)}}
+#anmelden .wrap{position:relative;z-index:1}
+.regbox{padding:50px 42px;max-width:660px;margin:0 auto;text-align:center;position:relative}
+.regbox .names{font-family:var(--serif);font-weight:700;color:var(--navy);white-space:nowrap;font-size:1.02rem;margin-top:4px}
+.regbox .names b{color:var(--gold-d)}
+.rform textarea{font-family:var(--sans);font-size:1rem;padding:14px 18px;border:1.5px solid var(--line);border-radius:12px;background:rgba(255,255,255,.8);color:var(--navy);resize:vertical;min-height:70px}
+.rform textarea:focus{outline:none;border-color:var(--gold)}
+.rform .opt{font-family:var(--mont);font-size:.76rem;color:var(--gold-t);text-align:left;margin:2px 2px -4px;font-weight:600}
 .regbox .mini-termin{display:inline-flex;align-items:center;gap:8px;font-family:var(--mont);font-weight:800;font-size:.8rem;color:#2a2008;background:linear-gradient(180deg,#F3D98A,#DAA520);padding:8px 18px;border-radius:30px;margin-bottom:14px}
 .regbox h2{font-size:clamp(1.9rem,3.8vw,2.6rem);margin-bottom:8px}
 .regbox p{margin-bottom:22px}
@@ -420,7 +430,7 @@ footer a{color:var(--gold-b);text-decoration:none}
 <nav>
   <div class="nav-in">
     <a href="#top" class="brand">Claudia <b>Conen</b> <span class="amp">×</span> Gabi <b>Lindemann</b></a>
-    <a href="#anmelden" class="nav-cta">Kostenlos anmelden →</a>
+    <a href="#anmelden" class="nav-cta">Jetzt kostenlos dabei sein →</a>
   </div>
 </nav>
 
@@ -872,12 +882,15 @@ footer a{color:var(--gold-b);text-decoration:none}
     <div class="glass regbox">
       <span class="mini-termin">📅 <span id="terminTextMini">Termin folgt</span></span>
       <h2>Sei dabei — <span class="shimmer">kostenlos</span></h2>
-      <p>Trag dich ein und werde unverwechselbar im KI-Zeitalter. Mit Claudia Conen &amp; Gabi Lindemann.</p>
+      <p>Trag dich ein und werde unverwechselbar im KI-Zeitalter.</p>
+      <p class="names">Mit <b>Claudia Conen</b> und <b>Gabi Lindemann</b></p>
       <form class="rform" name="webinar" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html" onsubmit="return wbSubmit(event)">
         <input type="hidden" name="form-name" value="webinar">
         <p style="display:none"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
         <input type="text" name="vorname" placeholder="Dein Vorname" required>
         <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+        <span class="opt">Optional: Was möchtest du im Webinar am liebsten lernen?</span>
+        <textarea name="wunsch" placeholder="z. B. „endlich meine erste Landingpage bauen“ …"></textarea>
         <button type="submit" class="btn btn-gold">Ja, ich bin dabei! →</button>
       </form>
       <p class="rnote">🔒 Kein Spam. Nur dein Zugangslink &amp; hilfreiche Impulse. Abmeldung jederzeit.</p>
