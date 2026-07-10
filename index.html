@@ -945,19 +945,19 @@ function toggleVoice(){
 }
 (function(){var a=document.getElementById('voiceAudio');if(a)a.addEventListener('ended',function(){document.getElementById('voicebar').classList.remove('playing');document.getElementById('voicePlay').textContent='▶';});})();
 
-// FOTO-SLIDER aufbauen (Platzhalter; echte Fotos später in assets/menschen/ ablegen und src setzen)
+// FOTO-SLIDER mit echten Fotos (weitere einfach in assets/menschen/ ablegen und hier ergänzen)
 (function(){
-  var namesL=['Anna','Markus','Petra','Jörg','Sabine','Tom','Lena','Kai','Ute','Ben'];
-  var namesR=['Clara','Dirk','Maria','Ralf','Nina','Ole','Eva','Sven','Rita','Max'];
-  function build(row,names){
+  var picsL=['p1.jpg','p2.jpg','p3.jpg','p4.jpg'];
+  var picsR=['p5.jpg','p6.jpg','p7.jpg','p8.jpg'];
+  function build(row,pics){
     if(!row) return; var html='';
-    for(var d=0;d<2;d++){ names.forEach(function(n){
-      html+='<div class="mq-item"><!-- FOTO: <img src="assets/menschen/'+n.toLowerCase()+'.jpg" alt="'+n+'"> --><div class="ph"><span class="big">📷</span>'+n+'</div></div>';
+    for(var d=0;d<3;d++){ pics.forEach(function(p){
+      html+='<div class="mq-item"><img src="assets/menschen/'+p+'" alt="" loading="lazy"></div>';
     });}
     row.innerHTML=html;
   }
-  build(document.getElementById('rowL'),namesL);
-  build(document.getElementById('rowR'),namesR);
+  build(document.getElementById('rowL'),picsL);
+  build(document.getElementById('rowR'),picsR);
 })();
 
 // PINNWAND: Karten per Tipp drehen (Handy)
