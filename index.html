@@ -111,6 +111,21 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 @keyframes fillp{0%,100%{opacity:.85}50%{opacity:1}}
 .microtrust{font-size:.9rem;color:var(--gold-t);margin-top:14px;font-family:var(--mont);font-weight:600}
 .microtrust b{color:var(--navy)}
+/* Voiceover-Player */
+.voicebar{display:inline-flex;align-items:center;gap:14px;margin-top:18px;padding:10px 18px 10px 10px;border-radius:44px;background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(253,250,244,.55));backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65);box-shadow:0 12px 30px rgba(10,22,40,.12),inset 0 1px 0 rgba(255,255,255,.9)}
+.voicebar .play{position:relative;flex-shrink:0;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(180deg,#F3D98A,#DAA520 60%,#A87C0A);color:#2a2008;font-size:1.05rem;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(218,165,32,.4)}
+.voicebar .play::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(218,165,32,.5);animation:vpulse 2s ease-out infinite}
+@keyframes vpulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.voicebar .vtxt{text-align:left;line-height:1.25}
+.voicebar .vtxt .vt1{font-family:var(--mont);font-weight:700;font-size:.9rem;color:var(--navy)}
+.voicebar .vtxt .vt2{font-family:var(--mont);font-size:.74rem;color:var(--gold-t);font-weight:600}
+.voicebar.playing .play::after{animation:none}
+/* laufende Tonwellen wenn abgespielt */
+.voicebar .wave{display:none;gap:3px;align-items:flex-end;height:20px}
+.voicebar.playing .wave{display:inline-flex}
+.voicebar .wave i{width:3px;background:var(--gold-d);border-radius:2px;animation:wv .9s ease-in-out infinite}
+.voicebar .wave i:nth-child(2){animation-delay:.15s}.voicebar .wave i:nth-child(3){animation-delay:.3s}.voicebar .wave i:nth-child(4){animation-delay:.45s}
+@keyframes wv{0%,100%{height:5px}50%{height:18px}}
 
 /* HOST DUO */
 .duo{position:relative}
@@ -266,8 +281,22 @@ details[open] .faq-q:after{content:"–"}
 .mkband .mk-in{position:relative;z-index:2;padding:44px;max-width:640px}
 .mkband h2{color:#fff}
 .mkband p{color:#e7ecf4;margin-top:10px}
-footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:40px 24px;font-size:.88rem;position:relative;z-index:2}
+footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:44px 24px;font-size:.88rem;position:relative;z-index:2}
 footer a{color:var(--gold-b);text-decoration:none}
+.socials{display:flex;gap:20px;justify-content:center;margin:0 0 26px;perspective:600px}
+.socials a{position:relative;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 50% 32%,#1c3358 0%,#12233f 45%,#0A1628 100%);
+  border:1.5px solid rgba(218,165,32,.85);
+  box-shadow:0 8px 18px rgba(0,0,0,.45),inset 0 2px 4px rgba(234,199,110,.35),inset 0 -3px 6px rgba(0,0,0,.55);
+  animation:iconFloat 3.6s ease-in-out infinite;transition:transform .25s ease,box-shadow .25s ease}
+.socials a:nth-child(2){animation-delay:-.6s}.socials a:nth-child(3){animation-delay:-1.2s}
+.socials a:nth-child(4){animation-delay:-1.8s}.socials a:nth-child(5){animation-delay:-2.4s}
+/* zarter Glanzpunkt oben = 3D */
+.socials a::before{content:"";position:absolute;top:6px;left:14px;width:18px;height:11px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);pointer-events:none}
+@keyframes iconFloat{0%,100%{transform:translateY(0) rotateX(0deg);box-shadow:0 8px 18px rgba(0,0,0,.45),inset 0 2px 4px rgba(234,199,110,.35),inset 0 -3px 6px rgba(0,0,0,.55),0 0 0 0 rgba(218,165,32,.35)}50%{transform:translateY(-5px) rotateX(8deg);box-shadow:0 16px 26px rgba(0,0,0,.4),inset 0 2px 4px rgba(234,199,110,.45),inset 0 -3px 6px rgba(0,0,0,.5),0 0 14px 2px rgba(218,165,32,.18)}}
+.socials a:hover{transform:translateY(-6px) scale(1.06)}
+.socials svg{width:24px;height:24px;fill:var(--gold-b);filter:drop-shadow(0 1px 1px rgba(0,0,0,.5));position:relative;z-index:2}
+@media(prefers-reduced-motion:reduce){.socials a{animation:none}}
 
 @media(max-width:880px){
   .hero-grid,.grid-2,.grid-3,.steps,.split,.up-cards{grid-template-columns:1fr}
@@ -335,6 +364,13 @@ footer a{color:var(--gold-b);text-decoration:none}
         <div class="bar"><div class="fill"></div></div>
       </div>
       <p class="microtrust">★★★★★ <b>500+</b> Teilnehmer · Für alle, die spüren: Allein kämpfen war gestern.</p>
+      <!-- VOICEOVER-PLAYER: audio-Datei später unter assets/voiceover.mp3 ablegen -->
+      <div class="voicebar" id="voicebar" onclick="toggleVoice()">
+        <button class="play" id="voicePlay" aria-label="Voiceover abspielen">▶</button>
+        <div class="vtxt"><div class="vt1">🎙️ Hör mich — 60 Sek. von Claudia</div><div class="vt2">Worum es geht — persönlich für dich</div></div>
+        <span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </div>
+      <audio id="voiceAudio" preload="none" src="assets/voiceover.mp3"></audio>
     </div>
 
     <!-- HOST-DUO -->
@@ -728,6 +764,13 @@ footer a{color:var(--gold-b);text-decoration:none}
 </section>
 
 <footer>
+  <div class="socials">
+    <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg></a>
+    <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm6.3-8.2a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg></a>
+    <a href="#" aria-label="Podcast" title="Podcast"><svg viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21H8v2h8v-2h-3v-3.1A7 7 0 0 0 19 11z"/></svg></a>
+    <a href="#" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.2v1.8H8v3h2.5V22H14v-8.5h2.5l.4-3z"/></svg></a>
+    <a href="#" aria-label="Telefon" title="Telefon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.5-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1z"/></svg></a>
+  </div>
   <p><b style="color:#f3ede0">Unverwechselbar im KI-Zeitalter</b> — das Live-Webinar mit Claudia Conen &amp; Gabi Lindemann</p>
   <p style="margin-top:8px">&copy; 2026 Claudia Conen · <a href="#top">Nach oben</a></p>
 </footer>
@@ -750,6 +793,18 @@ var mini=document.getElementById('terminTextMini'); if(mini) mini.textContent=WE
     elD.textContent=Math.floor(diff/86400000);elH.textContent=pad(Math.floor(diff%86400000/3600000));elM.textContent=pad(Math.floor(diff%3600000/60000));elS.textContent=pad(Math.floor(diff%60000/1000));}
   tick();setInterval(tick,1000);
 })();
+// VOICEOVER-PLAYER
+function toggleVoice(){
+  var a=document.getElementById('voiceAudio'), bar=document.getElementById('voicebar'), btn=document.getElementById('voicePlay');
+  if(!a) return;
+  if(a.paused){
+    var p=a.play();
+    if(p&&p.catch){p.catch(function(){alert('🎙️ Sobald du deine Aufnahme unter assets/voiceover.mp3 ablegst, spielt hier dein Voiceover.');});}
+    bar.classList.add('playing'); btn.textContent='⏸';
+  } else { a.pause(); bar.classList.remove('playing'); btn.textContent='▶'; }
+}
+(function(){var a=document.getElementById('voiceAudio');if(a)a.addEventListener('ended',function(){document.getElementById('voicebar').classList.remove('playing');document.getElementById('voicePlay').textContent='▶';});})();
+
 // FOTO-SLIDER aufbauen (Platzhalter; echte Fotos später in assets/menschen/ ablegen und src setzen)
 (function(){
   var namesL=['Anna','Markus','Petra','Jörg','Sabine','Tom','Lena','Kai','Ute','Ben'];
