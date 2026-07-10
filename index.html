@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unverwechselbar mit KI — Das Live-Webinar mit Claudia Conen & Gabi Lindemann</title>
+<meta name="description" content="Kostenloses Live-Webinar: KI verständlich Schritt für Schritt — und wie du im KI-Zeitalter unverwechselbar wirst. Für Business-Menschen, auch mit über 50.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1628; --navy2:#12233f; --ink:#3C4663;
+  --gold:#DAA520; --gold-b:#EAC76E; --gold-d:#A87C0A; --gold-t:#9a6f16;
+  --cream:#FBF6EC; --line:rgba(218,165,32,.22);
+  --serif:'Playfair Display',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mont:'Montserrat',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#FBF6EC;line-height:1.6;font-size:17px;overflow-x:hidden;position:relative}
+/* animated brand background (macht Glas erst sichtbar) */
+.bg-decor{position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(900px 600px at 12% 8%,rgba(234,199,110,.28),transparent 60%),
+  radial-gradient(800px 700px at 88% 22%,rgba(218,165,32,.16),transparent 60%),
+  radial-gradient(1000px 800px at 50% 100%,rgba(18,35,63,.10),transparent 60%),
+  linear-gradient(180deg,#FFFDF9,#FBF3E4)}
+.orb{position:fixed;z-index:-1;border-radius:50%;filter:blur(46px);opacity:.5;pointer-events:none}
+.orb.o1{width:340px;height:340px;left:-60px;top:120px;background:radial-gradient(circle,rgba(234,199,110,.6),transparent 70%);animation:drift 18s ease-in-out infinite}
+.orb.o2{width:280px;height:280px;right:-40px;top:520px;background:radial-gradient(circle,rgba(218,165,32,.4),transparent 70%);animation:drift 22s ease-in-out infinite reverse}
+.orb.o3{width:300px;height:300px;left:40%;top:1500px;background:radial-gradient(circle,rgba(201,169,97,.35),transparent 70%);animation:drift 26s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(40px,-30px)}66%{transform:translate(-30px,25px)}}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.12;font-weight:700}
+.eyebrow{font-family:var(--mont);text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;font-weight:700;color:var(--gold-t)}
+.shimmer{background:linear-gradient(135deg,#d4af37,#f7e7ce,#c9a961,#f7e7ce,#d4af37);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 5s ease-in-out infinite}
+@keyframes shim{0%,100%{background-position:0% center}50%{background-position:200% center}}
+
+/* ===== SIGNATURE GLASS (weißer Schimmer = Markenzeichen) ===== */
+.glass{position:relative;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(253,250,244,.5));
+  backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);
+  border:1px solid rgba(255,255,255,.65);border-radius:22px;
+  box-shadow:0 22px 55px rgba(10,22,40,.12),inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(218,165,32,.08);
+  transition:transform .3s ease,box-shadow .3s ease}
+.glass::after{content:"";position:absolute;top:0;left:-80%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skew(-16deg);animation:sweep 6.5s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,62%{left:-80%}100%{left:155%}}
+.glass:hover{transform:translateY(-6px);box-shadow:0 32px 70px rgba(10,22,40,.18),inset 0 1px 0 rgba(255,255,255,.95)}
+.float{animation:float 6s ease-in-out infinite}
+.float.d{animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+/* dunkle Glasvariante als Akzent */
+.glass-dark{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(10,22,40,.96),rgba(26,43,76,.92));backdrop-filter:blur(20px);border:1px solid rgba(218,165,32,.28);border-radius:22px;box-shadow:0 22px 55px rgba(10,22,40,.3),inset 0 1px 0 rgba(234,199,110,.25)}
+.glass-dark::after{content:"";position:absolute;top:0;left:-80%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.14),transparent);transform:skew(-16deg);animation:sweep 7s ease-in-out infinite;pointer-events:none}
+
+.btn{display:inline-block;font-family:var(--mont);font-weight:800;font-size:1.02rem;letter-spacing:.01em;text-decoration:none;border-radius:44px;padding:17px 38px;cursor:pointer;border:none;transition:transform .2s ease,box-shadow .2s ease;position:relative}
+.btn-gold{background:linear-gradient(180deg,#F3D98A,#DAA520 55%,#A87C0A);color:#2a2008;box-shadow:0 12px 30px rgba(218,165,32,.4);animation:ctaGlow 2.6s ease-in-out infinite}
+@keyframes ctaGlow{0%,100%{box-shadow:0 12px 30px rgba(218,165,32,.4),0 0 0 0 rgba(218,165,32,.5)}50%{box-shadow:0 12px 30px rgba(218,165,32,.5),0 0 0 14px rgba(218,165,32,0)}}
+.btn-gold:hover{transform:translateY(-3px) scale(1.02)}
+.btn-ghost{background:rgba(255,255,255,.5);color:var(--navy);border:1.5px solid var(--gold);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.8)}
+.sec{padding:78px 0;position:relative}
+.sh{max-width:740px;margin:0 auto 46px;text-align:center}
+.sh h2{font-size:clamp(2rem,4.2vw,3rem);margin:.5rem 0 .5rem}
+.sh p{font-size:1.1rem;color:var(--ink)}
+
+/* TICKER */
+.ticker{background:linear-gradient(90deg,#0A1628,#12233f,#0A1628);color:#f3ede0;overflow:hidden;white-space:nowrap;border-bottom:1px solid rgba(218,165,32,.4);position:relative;z-index:2}
+.ticker .track{display:inline-block;padding:10px 0;animation:tick 24s linear infinite;font-family:var(--mont);font-size:.82rem;font-weight:700;letter-spacing:.05em}
+.ticker span{margin:0 24px}.ticker .hl{color:var(--gold-b)}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:13px 24px;max-width:1140px;margin:0 auto}
+.brand{font-family:var(--serif);font-size:1.32rem;color:var(--navy);text-decoration:none;font-weight:700}
+.brand b{color:var(--gold-d)}.brand .x{color:var(--ink);font-weight:400;font-family:var(--sans);font-size:.92rem}
+.nav-cta{font-family:var(--mont);font-weight:800;font-size:.84rem;background:linear-gradient(180deg,#F3D98A,#DAA520);color:#2a2008;padding:11px 22px;border-radius:30px;text-decoration:none;box-shadow:0 6px 18px rgba(218,165,32,.35)}
+
+/* HERO */
+.hero{position:relative;padding:60px 0 84px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.badge-live{display:inline-flex;align-items:center;gap:9px;font-family:var(--mont);font-weight:800;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,#c0392b,#8e2a20);padding:8px 16px;border-radius:30px;box-shadow:0 8px 20px rgba(160,50,35,.3)}
+.badge-live .dot{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1.3s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4rem);margin:18px 0 14px;letter-spacing:-.01em}
+.hero .lead{font-size:1.18rem;color:var(--ink);max-width:570px;margin-bottom:16px}
+.hero .lead b{color:var(--navy)}
+.u50{display:inline-flex;align-items:center;gap:10px;font-family:var(--mont);font-weight:700;font-size:.94rem;color:var(--navy);background:rgba(255,255,255,.6);border:1px solid rgba(218,165,32,.3);padding:10px 16px;border-radius:14px;margin-bottom:18px;backdrop-filter:blur(8px)}
+.u50 .em{font-size:1.2rem}
+
+/* TERMIN */
+.termin{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:20px 24px;margin:4px 0 14px;animation:terminPulse 2.4s ease-in-out infinite,float 6s ease-in-out infinite}
+@keyframes terminPulse{0%,100%{box-shadow:0 22px 55px rgba(10,22,40,.3),inset 0 1px 0 rgba(234,199,110,.25),0 0 0 0 rgba(218,165,32,.55)}50%{box-shadow:0 22px 55px rgba(10,22,40,.34),inset 0 1px 0 rgba(234,199,110,.25),0 0 0 13px rgba(218,165,32,0)}}
+.termin .cal{font-size:2rem;line-height:1}
+.termin .tt{flex:1;min-width:170px}
+.termin .tt .lbl{font-family:var(--mont);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-b);font-weight:800}
+.termin .tt #terminText{font-family:var(--serif);color:#fff;font-size:1.4rem;font-weight:700;line-height:1.15;margin-top:2px}
+.countdown{display:flex;gap:8px}
+.cd-box{background:rgba(255,255,255,.09);border:1px solid rgba(218,165,32,.4);border-radius:12px;padding:8px 11px;min-width:56px;text-align:center}
+.cd-box .num{font-family:var(--mont);font-weight:800;font-size:1.5rem;color:var(--gold-b);line-height:1}
+.cd-box .u{font-family:var(--mont);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:#c7d0df;margin-top:3px}
+
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+/* scarcity */
+.scarce{margin-top:20px;max-width:430px}
+.scarce .lbl2{display:flex;justify-content:space-between;font-family:var(--mont);font-size:.78rem;font-weight:700;color:var(--gold-t);margin-bottom:6px}
+.scarce .bar{height:10px;border-radius:10px;background:rgba(10,22,40,.1);overflow:hidden}
+.scarce .fill{height:100%;width:82%;border-radius:10px;background:linear-gradient(90deg,#DAA520,#EAC76E);box-shadow:0 0 12px rgba(218,165,32,.6);animation:fillp 3s ease-in-out infinite}
+@keyframes fillp{0%,100%{opacity:.85}50%{opacity:1}}
+.microtrust{font-size:.9rem;color:var(--gold-t);margin-top:14px;font-family:var(--mont);font-weight:600}
+.microtrust b{color:var(--navy)}
+
+/* HOST DUO */
+.duo{position:relative}
+.duo-row{display:flex;gap:18px;justify-content:center}
+.photo{position:relative;width:100%;max-width:200px;aspect-ratio:3/4;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 22px 55px rgba(10,22,40,.28)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-b);text-align:center;padding:10px;font-family:var(--mont);font-size:.72rem}
+.photo .ph .big{font-size:2rem;margin-bottom:6px}
+.photo::after{content:"";position:absolute;top:0;left:-75%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skew(-16deg);animation:sweep 5.5s ease-in-out infinite}
+.photo .nmtag{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(10,22,40,.94),transparent);padding:24px 10px 12px;text-align:center}
+.photo .nmtag .n{font-family:var(--serif);color:#fff;font-weight:700;font-size:1rem}
+.photo .nmtag .r{font-family:var(--mont);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-b)}
+.duo-plus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:50px;height:50px;border-radius:50%;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.5rem;box-shadow:0 10px 24px rgba(218,165,32,.5)}
+
+/* generic glass card paddings */
+.card{padding:28px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ic-lg{font-size:1.9rem;margin-bottom:10px}
+.card h3{font-size:1.18rem;margin-bottom:6px}
+.card p{font-size:.95rem}
+
+/* agenda tiles */
+.tile{padding:34px 30px}
+.tile .partof{font-family:var(--mont);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-t)}
+.tile h3{font-size:1.55rem;margin:8px 0 4px}
+.tile .who{font-family:var(--mont);font-size:.85rem;color:var(--gold-d);font-weight:700;margin-bottom:14px}
+.tile ul{list-style:none}
+.tile li{padding:9px 0 9px 30px;position:relative;color:var(--ink);border-bottom:1px dashed var(--line)}
+.tile li:last-child{border-bottom:none}
+.tile li:before{content:"✓";position:absolute;left:0;top:9px;color:var(--gold-d);font-weight:800}
+
+/* live demo */
+.demo{padding:44px;display:flex;gap:28px;align-items:center}
+.demo .big{font-size:3.4rem;flex-shrink:0}
+.demo h3{color:#fff;font-size:1.75rem;margin-bottom:6px}
+.demo p{color:#cdd6e5;font-size:1.02rem;margin:0}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{text-align:center;padding:26px 16px}
+.step .n{width:58px;height:58px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(145deg,#F3D98A,#DAA520);color:#2a2008;font-family:var(--serif);font-weight:700;font-size:1.55rem;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px rgba(218,165,32,.35)}
+.step h3{font-size:1.14rem;margin-bottom:6px}.step p{font-size:.94rem}
+
+/* für wen */
+.fw{padding:22px 24px;display:flex;gap:14px;align-items:flex-start}
+.fw .ic{font-size:1.5rem;flex-shrink:0}
+.fw h3{font-size:1.08rem;margin-bottom:3px}.fw p{font-size:.92rem}
+
+/* vorher/nachher + fit */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.split .col{padding:32px 30px}
+.split h3{font-size:1.35rem;margin-bottom:14px}
+.split ul{list-style:none}
+.split li{padding:9px 0 9px 30px;position:relative;font-size:.98rem}
+.vor li{color:#6a6350}.vor li:before{content:"✕";position:absolute;left:0;color:#b06a4a;font-weight:800}
+.nach h3{color:#fff}.nach li{color:#e7ecf4}.nach li:before{content:"✓";position:absolute;left:0;color:var(--gold-b);font-weight:800}
+
+/* hosts */
+.hcard{display:flex;gap:20px;align-items:center;padding:26px}
+.hcard .pic{width:120px;height:150px;flex-shrink:0;border-radius:16px;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);position:relative}
+.hcard .pic img{width:100%;height:100%;object-fit:cover}
+.hcard .pic .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gold-b);font-family:var(--mont);font-size:.7rem;text-align:center;padding:8px}
+.hcard h3{font-size:1.35rem;margin-bottom:2px}
+.hcard .ro{font-family:var(--mont);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-d);font-weight:700;margin-bottom:8px}
+.hcard p{font-size:.95rem}
+
+/* voices */
+.voice{padding:24px}
+.voice .stars{color:var(--gold);letter-spacing:2px;margin-bottom:8px}
+.voice p{font-style:italic;color:var(--ink);font-size:.96rem;margin-bottom:12px}
+.voice .who{font-family:var(--mont);font-weight:700;font-size:.85rem;color:var(--navy)}
+.voice .who span{color:var(--gold-t);font-weight:500}
+
+/* upgrade / community (dark accent) */
+.upgrade{padding:56px 44px;text-align:center;color:#f3ede0}
+.upgrade h2{color:#fff;font-size:clamp(1.9rem,3.8vw,2.7rem)}
+.upgrade p{color:#cdd6e5;max-width:640px;margin:14px auto 26px}
+.up-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:0 auto 30px}
+.up-card{background:rgba(255,255,255,.06);border:1px solid rgba(218,165,32,.3);border-radius:18px;padding:26px;text-align:left}
+.up-card .tag{font-family:var(--mont);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-b);font-weight:800}
+.up-card h3{color:#fff;font-size:1.25rem;margin:8px 0 6px}
+.up-card p{color:#c7d0df;font-size:.94rem;margin:0}
+
+/* bonus */
+.bonus{padding:46px;text-align:center;border:1.5px dashed var(--gold)!important}
+.bonus .gift{font-size:3rem;margin-bottom:6px}
+.bonus .tag{display:inline-block;font-family:var(--mont);font-weight:800;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2008;background:linear-gradient(180deg,#F3D98A,#DAA520);padding:6px 16px;border-radius:30px;margin-bottom:14px}
+.bonus h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.bonus p{max-width:600px;margin:12px auto 0}
+
+/* FAQ */
+.faq-item{margin-bottom:12px;overflow:hidden;border-radius:16px}
+.faq-q{font-family:var(--mont);font-weight:700;color:var(--navy);padding:18px 22px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q:after{content:"+";color:var(--gold-d);font-size:1.4rem;font-weight:700}
+details[open] .faq-q:after{content:"–"}
+.faq-a{padding:0 22px 18px;color:var(--ink);font-size:.98rem}
+
+/* register */
+.regbox{padding:50px 42px;max-width:660px;margin:0 auto;text-align:center}
+.regbox .mini-termin{display:inline-flex;align-items:center;gap:8px;font-family:var(--mont);font-weight:800;font-size:.8rem;color:#2a2008;background:linear-gradient(180deg,#F3D98A,#DAA520);padding:8px 18px;border-radius:30px;margin-bottom:14px}
+.regbox h2{font-size:clamp(1.9rem,3.8vw,2.6rem);margin-bottom:8px}
+.regbox p{margin-bottom:22px}
+.rform{display:flex;flex-direction:column;gap:12px;max-width:430px;margin:0 auto}
+.rform input{font-family:var(--sans);font-size:1rem;padding:16px 18px;border:1.5px solid var(--line);border-radius:12px;background:rgba(255,255,255,.8);color:var(--navy)}
+.rform input:focus{outline:none;border-color:var(--gold)}
+.rform .btn{margin-top:6px}
+.rnote{font-size:.82rem;color:var(--ink);margin-top:14px}
+
+footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:40px 24px;font-size:.88rem;position:relative;z-index:2}
+footer a{color:var(--gold-b);text-decoration:none}
+
+@media(max-width:880px){
+  .hero-grid,.grid-2,.grid-3,.steps,.split,.up-cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .demo{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body id="top">
+<div class="bg-decor"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="track">
+  <span>🔴 <span class="hl">KOSTENLOSES LIVE-WEBINAR</span></span><span class="hl">•</span>
+  <span>KI verständlich — Schritt für Schritt</span><span class="hl">•</span>
+  <span>Unverwechselbar im <span class="hl">KI-Zeitalter</span></span><span class="hl">•</span>
+  <span>Wenn <span class="hl">2 Frauen Ü50</span> das schaffen — schaffst du das auch</span><span class="hl">•</span>
+  <span>Begrenzte Plätze — <span class="hl">jetzt sichern</span></span><span class="hl">•</span>
+  <span>🔴 <span class="hl">KOSTENLOSES LIVE-WEBINAR</span></span><span class="hl">•</span>
+  <span>KI verständlich — Schritt für Schritt</span><span class="hl">•</span>
+  <span>Unverwechselbar im <span class="hl">KI-Zeitalter</span></span><span class="hl">•</span>
+  <span>Wenn <span class="hl">2 Frauen Ü50</span> das schaffen — schaffst du das auch</span><span class="hl">•</span>
+  <span>Begrenzte Plätze — <span class="hl">jetzt sichern</span></span><span class="hl">•</span>
+</div></div>
+
+<nav>
+  <div class="nav-in">
+    <a href="#top" class="brand">Claudia <b>Conen</b> <span class="x">× Gabi Lindemann</span></a>
+    <a href="#anmelden" class="nav-cta">Kostenlos anmelden →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge-live"><span class="dot"></span> Live &amp; kostenlos · begrenzte Plätze</span>
+      <h1>Verpass jetzt nicht den Anschluss.<br><span class="shimmer">Werde unverwechselbar.</span></h1>
+      <p class="lead">KI verändert gerade jeden Markt. Die Frage ist nicht <i>ob</i> — sondern ob du dabei <b>untergehst oder herausstichst.</b> Wir zeigen dir Schritt für Schritt, wie du KI für dich nutzt und als Persönlichkeit unkopierbar wirst.</p>
+      <div class="u50"><span class="em">💪</span> Wenn zwei Frauen mit über 50 das schaffen — <b style="margin-left:4px">dann schaffst du das auch.</b></div>
+
+      <!-- TERMIN (pulsierend, glass-dark) -->
+      <div class="termin glass-dark">
+        <div class="cal">📅</div>
+        <div class="tt">
+          <div class="lbl">Nächster Live-Termin</div>
+          <div id="terminText">Termin folgt in Kürze</div>
+        </div>
+        <div class="countdown" id="countdown">
+          <div class="cd-box"><div class="num" id="cd-d">–</div><div class="u">Tage</div></div>
+          <div class="cd-box"><div class="num" id="cd-h">–</div><div class="u">Std</div></div>
+          <div class="cd-box"><div class="num" id="cd-m">–</div><div class="u">Min</div></div>
+          <div class="cd-box"><div class="num" id="cd-s">–</div><div class="u">Sek</div></div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#anmelden" class="btn btn-gold">Ja, ich sichere mir meinen Platz →</a>
+        <a href="#lernen" class="btn btn-ghost">Was lerne ich?</a>
+      </div>
+
+      <div class="scarce">
+        <div class="lbl2"><span>🔥 Über 80% der Plätze vergeben</span><span>nur noch wenige frei</span></div>
+        <div class="bar"><div class="fill"></div></div>
+      </div>
+      <p class="microtrust">★★★★★ <b>500+</b> Teilnehmer · Für alle, die spüren: Allein kämpfen war gestern.</p>
+    </div>
+
+    <!-- HOST-DUO -->
+    <div class="duo">
+      <div class="duo-plus">+</div>
+      <div class="duo-row">
+        <div class="photo float">
+          <!-- FOTO CLAUDIA: <img src="assets/claudia.jpg" alt="Claudia Conen"> -->
+          <div class="ph"><span class="big">📷</span>Foto<br>Claudia</div>
+          <div class="nmtag"><div class="n">Claudia Conen</div><div class="r">Wirkung &amp; Positionierung</div></div>
+        </div>
+        <div class="photo float d">
+          <!-- FOTO GABI: <img src="assets/gabi.jpg" alt="Gabi Lindemann"> -->
+          <div class="ph"><span class="big">📷</span>Foto<br>Gabi</div>
+          <div class="nmtag"><div class="n">Gabi Lindemann</div><div class="r">KI &amp; Claude-Expertin</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- REASSURE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Du bist nicht allein</span>
+      <h2>Gott sei Dank musst du da nicht mehr <span class="shimmer">allein durch.</span></h2>
+      <p>KI überrollt gerade alles — und viele fühlen sich abgehängt. Das Gute: Du musst weder Technik-Profi sein noch jünger werden. Du brauchst nur den richtigen ersten Schritt und Menschen an deiner Seite.</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass card float"><div class="ic-lg">😮‍💨</div><h3>Kennst du das?</h3><p>„Alle reden von KI — und ich verstehe nur Bahnhof." Genau da holen wir dich ab.</p></div>
+      <div class="glass card float d"><div class="ic-lg">🚀</div><h3>Das Ziel</h3><p>KI als deinen persönlichen Beschleuniger nutzen — statt dich davon überrollen zu lassen.</p></div>
+      <div class="glass card float"><div class="ic-lg">🤝</div><h3>Das Versprechen</h3><p>Gemeinsam stark ist besser als allein stark. Du gehst mit einem klaren nächsten Schritt raus.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS DU MIT KI MACHEN KANNST -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Dein neuer Rückenwind</span>
+      <h2>Was du mit KI alles <span class="shimmer">machen kannst</span></h2>
+      <p>Stell dir vor, du hast ab morgen eine kluge Assistenz an deiner Seite — rund um die Uhr, für all das:</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass card"><div class="ic-lg">✍️</div><h3>Texte &amp; Ideen</h3><p>Posts, E-Mails, Angebote — in Minuten statt Stunden, in deiner Sprache.</p></div>
+      <div class="glass card"><div class="ic-lg">🎨</div><h3>Design &amp; Bilder</h3><p>Mit Claude Design Entwürfe &amp; Grafiken — ganz ohne Design-Studium.</p></div>
+      <div class="glass card"><div class="ic-lg">🧭</div><h3>Struktur &amp; Strategie</h3><p>Klarheit ins Angebot bringen und den nächsten Schritt planen.</p></div>
+      <div class="glass card"><div class="ic-lg">💬</div><h3>Kundengespräche</h3><p>Antworten vorbereiten, Einwände meistern, souverän wirken.</p></div>
+      <div class="glass card"><div class="ic-lg">⚙️</div><h3>Lästige Aufgaben</h3><p>Routine automatisieren — mehr Zeit für das, was nur du kannst.</p></div>
+      <div class="glass card"><div class="ic-lg">🌟</div><h3>Deine Sichtbarkeit</h3><p>Unverwechselbar auftreten und aus der Masse herausstechen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAS DU LERNST -->
+<section class="sec" id="lernen">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Das erwartet dich</span>
+      <h2>Zwei Teile, die perfekt <span class="shimmer">zusammenspielen</span></h2>
+      <p>Erst die Technik verständlich machen — dann daraus deine unverwechselbare Wirkung bauen.</p>
+    </div>
+    <div class="grid-2">
+      <div class="glass tile">
+        <span class="partof">Teil 1 · Die Technik</span>
+        <h3>Claude für Einsteiger</h3>
+        <div class="who">mit Gabi Lindemann · KI-Expertin</div>
+        <ul>
+          <li>Was ist Claude — und warum ist es so genial (ohne Fachchinesisch)</li>
+          <li>Schritt für Schritt: dein erster Chat, deine ersten Ergebnisse</li>
+          <li>Claude Code &amp; Claude Design — einfach erklärt</li>
+          <li>Die häufigsten Anfänger-Fehler — und wie du sie vermeidest</li>
+        </ul>
+      </div>
+      <div class="glass tile">
+        <span class="partof">Teil 2 · Deine Wirkung</span>
+        <h3>Unverwechselbar im KI-Zeitalter</h3>
+        <div class="who">mit Claudia Conen · Wirkungs-Expertin</div>
+        <ul>
+          <li>KI als Beschleuniger nutzen — ohne dein Gesicht zu verlieren</li>
+          <li>Wie du aus der Masse der Angebote klar heraussteckst</li>
+          <li>Deine hörbare Persönlichkeit als unkopierbarer Vorteil</li>
+          <li>Dein Fahrplan: der nächste konkrete Schritt für dich</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE-DEMO -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="demo glass-dark">
+      <div class="big">👀</div>
+      <div>
+        <span class="eyebrow" style="color:var(--gold-b)">Das Herzstück</span>
+        <h3>Die Live-Demo: KI baut vor deinen Augen mit</h3>
+        <p>Kein trockener Vortrag. Du siehst live, wie aus einer einfachen Eingabe echte Ergebnisse entstehen — und merkst: „Das kann ich auch." Genau dieser Aha-Moment nimmt die Angst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SO EINFACH -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">So einfach machst du mit</span>
+      <h2>In 4 Schritten dabei</h2>
+      <p>Kein Technik-Stress. Wirklich für jeden machbar.</p>
+    </div>
+    <div class="steps">
+      <div class="glass step"><div class="n">1</div><h3>Anmelden</h3><p>Name &amp; E-Mail eintragen — fertig. Kostenlos.</p></div>
+      <div class="glass step"><div class="n">2</div><h3>Link erhalten</h3><p>Zugangslink kommt bequem per E-Mail.</p></div>
+      <div class="glass step"><div class="n">3</div><h3>Dabei sein</h3><p>Am Termin einfach draufklicken — von zu Hause.</p></div>
+      <div class="glass step"><div class="n">4</div><h3>Loslegen</h3><p>Mit deinem ersten Ergebnis rausgehen.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Für wen ist das?</span>
+      <h2>Für dich, wenn du <span class="shimmer">dazugehören</span> willst</h2>
+      <p>Egal wie alt, egal wie viel Technik-Erfahrung — trau dich, mitzumachen.</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass fw"><span class="ic">🌱</span><div><h3>Einsteiger</h3><p>Noch nie mit KI gearbeitet? Perfekt — hier fängst du an.</p></div></div>
+      <div class="glass fw"><span class="ic">👑</span><div><h3>Generation 50+</h3><p>Du bringst Erfahrung mit — wir bringen dir die KI.</p></div></div>
+      <div class="glass fw"><span class="ic">💼</span><div><h3>Selbstständige &amp; Coaches</h3><p>Sichtbar werden und herausstechen — mit KI als Rückenwind.</p></div></div>
+      <div class="glass fw"><span class="ic">🏢</span><div><h3>Mittelstand</h3><p>Menschlich unverwechselbar bleiben, während KI beschleunigt.</p></div></div>
+      <div class="glass fw"><span class="ic">🎤</span><div><h3>Redner &amp; Experten</h3><p>Deine Persönlichkeit hörbar machen — was keine KI kopiert.</p></div></div>
+      <div class="glass fw"><span class="ic">❤️</span><div><h3>Alle, die nicht allein kämpfen wollen</h3><p>Weil gemeinsam stark einfach besser ist.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VORHER/NACHHER -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Der Unterschied</span>
+      <h2>Dein Alltag — vorher vs. <span class="shimmer">nachher</span></h2>
+    </div>
+    <div class="split">
+      <div class="glass col vor">
+        <h3>😰 Vorher</h3>
+        <ul>
+          <li>KI fühlt sich riesig &amp; überfordernd an</li>
+          <li>Du verlierst Zeit mit Texten, Ideen, Technik</li>
+          <li>Du gehst unter im Meer der Angebote</li>
+          <li>Das Gefühl, allein hinterherzulaufen</li>
+        </ul>
+      </div>
+      <div class="glass-dark col nach" style="padding:32px 30px">
+        <h3>✨ Nachher</h3>
+        <ul>
+          <li>Du nutzt KI ganz selbstverständlich für dich</li>
+          <li>Du bist in Minuten fertig — mit mehr Leichtigkeit</li>
+          <li>Du wirkst unverwechselbar &amp; wirst gesehen</li>
+          <li>Du bist Teil einer starken Gemeinschaft</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IST DAS DAS RICHTIGE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Kurz geprüft</span>
+      <h2>Ist dieses Webinar das Richtige für dich?</h2>
+    </div>
+    <div class="split">
+      <div class="glass-dark col nach" style="padding:32px 30px">
+        <h3>Ja, wenn du…</h3>
+        <ul>
+          <li>endlich verstehen willst, wie KI dir konkret hilft</li>
+          <li>bereit bist, einen einfachen ersten Schritt zu gehen</li>
+          <li>unverwechselbar statt austauschbar sein willst</li>
+          <li>lieber gemeinsam als allein wachsen möchtest</li>
+        </ul>
+      </div>
+      <div class="glass col vor">
+        <h3>Eher nicht, wenn du…</h3>
+        <ul>
+          <li>glaubst, alles bleibt so wie es immer war</li>
+          <li>nur zuschauen, aber nichts umsetzen willst</li>
+          <li>schon KI-Profi bist und alles kannst</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Deine Gastgeberinnen</span>
+      <h2>Zwei Perspektiven, <span class="shimmer">ein Ziel</span></h2>
+      <p>Die Technik, die dir KI leicht macht — und die Persönlichkeit, die dich unverwechselbar macht.</p>
+    </div>
+    <div class="grid-2">
+      <div class="glass hcard">
+        <div class="pic float"><div class="ph">📷 Foto Claudia</div></div>
+        <div>
+          <h3>Claudia Conen</h3>
+          <div class="ro">Wirkung &amp; Positionierung</div>
+          <p>Sie macht Menschen unverwechselbar — mit hörbarer Persönlichkeit, die in Sekunden Vertrauen schafft. Bekannt aus RTL, Sat.1 &amp; „Power of AI".</p>
+        </div>
+      </div>
+      <div class="glass hcard">
+        <div class="pic float d"><div class="ph">📷 Foto Gabi</div></div>
+        <div>
+          <h3>Gabi Lindemann</h3>
+          <div class="ro">KI &amp; Claude-Expertin</div>
+          <p>Sie übersetzt KI in einfache, machbare Schritte — von Claude über Claude Code bis Claude Design. Damit du sofort loslegst, ganz ohne Technik-Angst.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Das sagen Teilnehmer</span>
+      <h2>Andere haben sich auch <span class="shimmer">getraut</span></h2>
+      <p style="font-size:.9rem;color:var(--gold-t)">(Platzhalter — hier kommen echte Stimmen rein.)</p>
+    </div>
+    <div class="grid-3">
+      <div class="glass voice"><div class="stars">★★★★★</div><p>„Ich hatte solche Angst vor KI — nach dem Webinar habe ich am selben Abend meinen ersten Text mit Claude geschrieben. Mit 58!"</p><div class="who">Renate M. · <span>Coach</span></div></div>
+      <div class="glass voice"><div class="stars">★★★★★</div><p>„Endlich mal ohne Fachchinesisch. Claudia und Gabi nehmen dich wirklich an die Hand."</p><div class="who">Thomas K. · <span>Selbstständig</span></div></div>
+      <div class="glass voice"><div class="stars">★★★★★</div><p>„Ich fühle mich nicht mehr allein mit dem ganzen KI-Thema. Das war Gold wert."</p><div class="who">Sabine L. · <span>Beraterin</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="glass bonus">
+      <div class="gift">🎁</div>
+      <span class="tag">Gratis für alle Teilnehmer</span>
+      <h2>Dein Starter-Set „<span class="shimmer">Sofort loslegen</span>"</h2>
+      <p>Als Dankeschön fürs Dabeisein bekommst du unser Schritt-für-Schritt-Startpaket: die besten Einsteiger-Prompts &amp; eine Checkliste, mit der du direkt nach dem Webinar deine ersten Ergebnisse erzielst — ganz ohne Vorwissen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UPGRADE / COMMUNITY -->
+<section class="sec">
+  <div class="wrap">
+    <div class="glass-dark upgrade">
+      <span class="eyebrow" style="color:var(--gold-b)">Und danach?</span>
+      <h2>Dein Weg geht weiter — <span class="shimmer">gemeinsam</span></h2>
+      <p>Das Webinar ist dein Startpunkt. Wer möchte, geht danach tiefer — mit weiterführenden Workshops und einer Community, in der du selbst sichtbar wirst.</p>
+      <div class="up-cards">
+        <div class="up-card"><span class="tag">Vertiefung</span><h3>Aufbau-Workshops</h3><p>Schritt für Schritt weiter: KI wirklich in Alltag &amp; Business bringen.</p></div>
+        <div class="up-card"><span class="tag">Zuhause</span><h3>Die Community</h3><p>Werde selbst sichtbar, vernetze dich und wachse mit anderen — gemeinsam stark schlägt allein stark.</p></div>
+      </div>
+      <a href="#anmelden" class="btn btn-gold">Jetzt kostenlos starten →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="wrap" style="max-width:800px">
+    <div class="sh">
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>Du zögerst noch? Verständlich.</h2>
+    </div>
+    <details class="glass faq-item"><summary class="faq-q">Ich bin über 50 und kein Technik-Profi — kann ich mitmachen?</summary><div class="faq-a">Absolut — genau für dich ist das gemacht. Wir erklären alles langsam, Schritt für Schritt und ohne Fachchinesisch. Deine Lebenserfahrung ist dabei sogar dein Vorteil.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Was kostet das Webinar?</summary><div class="faq-a">Das Live-Webinar ist komplett <b>kostenlos</b>. Du brauchst nur deine E-Mail-Adresse für den Zugangslink.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Brauche ich etwas Besonderes?</summary><div class="faq-a">Nur einen Computer, ein Tablet oder ein Handy mit Internet. Kein Vorwissen, keine Installation.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Was, wenn ich live nicht kann?</summary><div class="faq-a">Melde dich trotzdem an — wir informieren dich über eine mögliche Aufzeichnung und die nächsten Termine.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Wird mir etwas verkauft?</summary><div class="faq-a">Im Webinar bekommst du echten Mehrwert und konkrete Schritte. Wer danach tiefer will, kann freiwillig Workshops &amp; Community entdecken — ohne Druck.</div></details>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="sec" id="anmelden">
+  <div class="wrap">
+    <div class="glass regbox">
+      <span class="mini-termin">📅 <span id="terminTextMini">Termin folgt</span></span>
+      <h2>Sei dabei — <span class="shimmer">kostenlos</span></h2>
+      <p>Trag dich ein und werde unverwechselbar im KI-Zeitalter. Mit Claudia Conen &amp; Gabi Lindemann.</p>
+      <form class="rform" name="webinar" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="webinar">
+        <p style="display:none"><label>Nicht ausfüllen: <input name="bot-field"></label></p>
+        <input type="text" name="vorname" placeholder="Dein Vorname" required>
+        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required>
+        <button type="submit" class="btn btn-gold">Ja, ich bin dabei! →</button>
+      </form>
+      <p class="rnote">🔒 Kein Spam. Nur dein Zugangslink &amp; hilfreiche Impulse. Abmeldung jederzeit.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b style="color:#f3ede0">Unverwechselbar im KI-Zeitalter</b> — das Live-Webinar mit Claudia Conen &amp; Gabi Lindemann</p>
+  <p style="margin-top:8px">&copy; 2026 Claudia Conen · <a href="#top">Nach oben</a></p>
+</footer>
+
+<script>
+/* ============================================================
+   👉 HIER DEN TERMIN ÄNDERN — nur diese 2 Zeilen anpassen:
+   ============================================================ */
+const WEBINAR_DATUM   = "2026-07-30T19:00:00";
+const WEBINAR_ANZEIGE = "Donnerstag, 30. Juli 2026 · 19:00 Uhr";
+/* ============================================================ */
+document.getElementById('terminText').textContent = WEBINAR_ANZEIGE;
+var mini=document.getElementById('terminTextMini'); if(mini) mini.textContent=WEBINAR_ANZEIGE;
+(function(){
+  var ziel=new Date(WEBINAR_DATUM).getTime();
+  var elD=document.getElementById('cd-d'),elH=document.getElementById('cd-h'),elM=document.getElementById('cd-m'),elS=document.getElementById('cd-s');
+  function pad(n){return (n<10?'0':'')+n;}
+  function tick(){var diff=ziel-new Date().getTime();
+    if(isNaN(ziel)||diff<0){elD.textContent='0';elH.textContent='00';elM.textContent='00';elS.textContent='00';return;}
+    elD.textContent=Math.floor(diff/86400000);elH.textContent=pad(Math.floor(diff%86400000/3600000));elM.textContent=pad(Math.floor(diff%3600000/60000));elS.textContent=pad(Math.floor(diff%60000/1000));}
+  tick();setInterval(tick,1000);
+})();
+(function(){
+  var els=document.querySelectorAll('.grid-3 .glass,.grid-2 .glass,.steps .glass,.split .glass,.split .glass-dark,.bonus');
+  function show(el){el.style.opacity=1;el.style.transform='none';}
+  if(!('IntersectionObserver' in window)){els.forEach(show);return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){show(en.target);io.unobserve(en.target)}})},{threshold:.08});
+  els.forEach(function(el){
+    el.style.opacity=0;el.style.transform='translateY(22px)';el.style.transition='opacity .7s ease,transform .7s ease';
+    io.observe(el);
+    // sofort zeigen, falls schon im sichtbaren Bereich
+    var r=el.getBoundingClientRect(); if(r.top < (window.innerHeight||800)) show(el);
+  });
+  // Sicherheits-Fallback: nach 1,8s alles zeigen (falls Observer nicht feuert)
+  setTimeout(function(){els.forEach(show);},1800);
+})();
+</script>
+</body>
+</html>
