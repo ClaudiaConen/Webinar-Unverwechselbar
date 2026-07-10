@@ -42,6 +42,7 @@ body{font-family:var(--sans);color:var(--ink);background:#FBF6EC;line-height:1.6
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.12;font-weight:700;text-wrap:balance}
 .sh h2 .shimmer{white-space:nowrap}
+p{text-wrap:pretty}
 .eyebrow{font-family:var(--mont);text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;font-weight:700;color:var(--gold-t)}
 .shimmer{background:linear-gradient(135deg,#d4af37,#f7e7ce,#c9a961,#f7e7ce,#d4af37);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 5s ease-in-out infinite}
 @keyframes shim{0%,100%{background-position:0% center}50%{background-position:200% center}}
@@ -248,10 +249,13 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .upgrade h2{color:#fff;font-size:clamp(1.9rem,3.8vw,2.7rem)}
 .upgrade p{color:#cdd6e5;max-width:640px;margin:14px auto 26px}
 .up-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:0 auto 30px}
-.up-card{background:rgba(255,255,255,.06);border:1px solid rgba(218,165,32,.3);border-radius:18px;padding:26px;text-align:left}
+.up-card{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.06));border:1px solid rgba(234,199,110,.55);border-radius:18px;padding:28px;text-align:left;box-shadow:inset 0 1px 0 rgba(234,199,110,.35);transition:transform .25s ease,box-shadow .25s ease}
+.up-card::after{content:"";position:absolute;top:0;left:-70%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.18),transparent);transform:skew(-16deg);animation:sweep 6s ease-in-out infinite;pointer-events:none}
+.up-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(234,199,110,.45)}
 .up-card .tag{font-family:var(--mont);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-b);font-weight:800}
-.up-card h3{color:#fff;font-size:1.25rem;margin:8px 0 6px}
-.up-card p{color:#c7d0df;font-size:.94rem;margin:0}
+.up-card h3{color:#fff;font-size:1.3rem;margin:8px 0 6px}
+.up-card p{color:#dfe6f0;font-size:.96rem;margin:0}
+.up-card .uc-more{display:inline-block;margin-top:12px;font-family:var(--mont);font-weight:700;font-size:.82rem;color:var(--gold-b)}
 
 /* bonus */
 .bonus{padding:46px;text-align:center;border:1.5px dashed var(--gold)!important}
@@ -837,10 +841,10 @@ footer a{color:var(--gold-b);text-decoration:none}
     <div class="glass-dark upgrade">
       <span class="eyebrow" style="color:var(--gold-b)">Und danach?</span>
       <h2>Dein Weg geht weiter — <span class="shimmer">gemeinsam</span></h2>
-      <p>Das Webinar ist dein Startpunkt. Wer möchte, geht danach tiefer — mit weiterführenden Workshops und einer Community, in der du selbst sichtbar wirst.</p>
+      <p>Das Webinar ist dein Startpunkt. Nutze die Gelegenheit: Du bekommst einen kostenlosen Zugang zu unserer Community, in der sich Unternehmer gegenseitig stärken. Gemeinsam mit Claudia Conen, Gabi Lindemann und Claude.</p>
       <div class="up-cards">
-        <div class="up-card"><span class="tag">Vertiefung</span><h3>Aufbau-Workshops</h3><p>Schritt für Schritt weiter: KI wirklich in Alltag &amp; Business bringen.</p></div>
-        <div class="up-card"><span class="tag">Zuhause</span><h3>Die Community</h3><p>Werde selbst sichtbar, vernetze dich und wachse mit anderen — gemeinsam stark schlägt allein stark.</p></div>
+        <div class="up-card"><span class="tag">Vertiefung</span><h3>Aufbau-Workshops</h3><p>Schritt für Schritt weiter: So bringst du KI wirklich in deinen Alltag und dein Business.</p><span class="uc-more">Ganz freiwillig →</span></div>
+        <div class="up-card"><span class="tag">Zuhause</span><h3>Die Community</h3><p>Werde selbst sichtbar, vernetze dich und wachse mit anderen. Gemeinsam stark schlägt allein stark.</p><span class="uc-more">Gratis-Zugang für Teilnehmer →</span></div>
       </div>
       <a href="#anmelden" class="btn btn-gold">Jetzt kostenlos starten →</a>
     </div>
@@ -854,11 +858,11 @@ footer a{color:var(--gold-b);text-decoration:none}
       <span class="eyebrow">Häufige Fragen</span>
       <h2>Du zögerst noch? Verständlich.</h2>
     </div>
-    <details class="glass faq-item"><summary class="faq-q">Ich bin über 50 und kein Technik-Profi — kann ich mitmachen?</summary><div class="faq-a">Absolut — genau für dich ist das gemacht. Wir erklären alles langsam, Schritt für Schritt und ohne Fachchinesisch. Deine Lebenserfahrung ist dabei sogar dein Vorteil.</div></details>
-    <details class="glass faq-item"><summary class="faq-q">Was kostet das Webinar?</summary><div class="faq-a">Das Live-Webinar ist komplett <b>kostenlos</b>. Du brauchst nur deine E-Mail-Adresse für den Zugangslink.</div></details>
-    <details class="glass faq-item"><summary class="faq-q">Brauche ich etwas Besonderes?</summary><div class="faq-a">Nur einen Computer, ein Tablet oder ein Handy mit Internet. Kein Vorwissen, keine Installation.</div></details>
-    <details class="glass faq-item"><summary class="faq-q">Was, wenn ich live nicht kann?</summary><div class="faq-a">Melde dich trotzdem an — wir informieren dich über eine mögliche Aufzeichnung und die nächsten Termine.</div></details>
-    <details class="glass faq-item"><summary class="faq-q">Wird mir etwas verkauft?</summary><div class="faq-a">Im Webinar bekommst du echten Mehrwert und konkrete Schritte. Wer danach tiefer will, kann freiwillig Workshops &amp; Community entdecken — ohne Druck.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Ich bin über 50 und kein Technik-Profi. Kann ich mitmachen?</summary><div class="faq-a">Ja, klar. Claudia hat sich auch erst mit 55 langsam für KI zu interessieren begonnen, und Gabi kam noch später dazu. Heute bringt Gabi sogar mehr Erfahrung mit als Claudia. Wenn wir das schaffen, schaffst du das auch.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Was kostet das Webinar?</summary><div class="faq-a">Es ist komplett <b>kostenlos</b>. Wir freuen uns über dein Feedback und schicken dir danach gerne einen Bewertungslink. Sonst entstehen dir keine Kosten.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Brauche ich etwas Besonderes?</summary><div class="faq-a">Deinen Computer, dein Tablet oder ein Handy mit Internet. Kein Vorwissen, keine Installation. Und gute Laune bitte mitbringen.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Was, wenn ich live nicht kann?</summary><div class="faq-a">Melde dich trotzdem an. Wir informieren dich über die nächsten Termine. Die sind übrigens nie ganz wie der erste, weil wir jedes Mal andere Themen beleuchten.</div></details>
+    <details class="glass faq-item"><summary class="faq-q">Wird mir etwas verkauft?</summary><div class="faq-a">Im Webinar wird nichts verkauft. Im Gegenteil: Du bekommst sogar einen Gratis-Zugang zu unserer Community. Nur wer danach freiwillig mit uns weitergehen möchte, bekommt zum Schluss ein Angebot für einen Workshop.</div></details>
   </div>
 </section>
 
