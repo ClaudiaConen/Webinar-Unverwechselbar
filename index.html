@@ -40,7 +40,8 @@ body{font-family:var(--sans);color:var(--ink);background:#FBF6EC;line-height:1.6
 .orb.o3{width:300px;height:300px;left:40%;top:1500px;background:radial-gradient(circle,rgba(201,169,97,.35),transparent 70%);animation:drift 26s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translate(0,0)}33%{transform:translate(40px,-30px)}66%{transform:translate(-30px,25px)}}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.12;font-weight:700}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.12;font-weight:700;text-wrap:balance}
+.sh h2 .shimmer{white-space:nowrap}
 .eyebrow{font-family:var(--mont);text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;font-weight:700;color:var(--gold-t)}
 .shimmer{background:linear-gradient(135deg,#d4af37,#f7e7ce,#c9a961,#f7e7ce,#d4af37);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shim 5s ease-in-out infinite}
 @keyframes shim{0%,100%{background-position:0% center}50%{background-position:200% center}}
@@ -97,8 +98,15 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .hero h1{font-size:clamp(2.4rem,5.4vw,4rem);margin:18px 0 14px;letter-spacing:-.01em}
 .hero .lead{font-size:1.18rem;color:var(--ink);max-width:570px;margin-bottom:16px}
 .hero .lead b{color:var(--navy)}
-.u50{display:inline-flex;align-items:center;gap:10px;font-family:var(--mont);font-weight:700;font-size:.94rem;color:var(--navy);background:rgba(255,255,255,.6);border:1px solid rgba(218,165,32,.3);padding:10px 16px;border-radius:14px;margin-bottom:18px;backdrop-filter:blur(8px)}
-.u50 .em{font-size:1.2rem}
+.u50{display:inline-flex;align-items:center;gap:12px;font-family:var(--mont);color:var(--navy);background:rgba(255,255,255,.6);border:1px solid rgba(218,165,32,.3);padding:12px 18px;border-radius:14px;margin-bottom:18px;backdrop-filter:blur(8px)}
+.u50 .em{font-size:1.5rem}
+.u50 .u50-txt{display:flex;flex-direction:column;line-height:1.25;text-align:left}
+.u50 .u50-txt .l1{font-weight:600;font-size:.9rem}
+.u50 .u50-txt .l2{font-weight:800;font-size:1.05rem;color:var(--gold-d)}
+/* Gold-Glow hinter den Reassure-Kacheln */
+#reassure{position:relative}
+#reassure .grid-3{position:relative}
+#reassure .grid-3::before{content:"";position:absolute;inset:-40px -20px;z-index:-1;background:radial-gradient(600px 260px at 50% 45%,rgba(218,165,32,.32),transparent 70%);filter:blur(10px);pointer-events:none}
 
 /* TERMIN */
 .termin{display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:20px 24px;margin:4px 0 14px;animation:terminPulse 2.4s ease-in-out infinite,float 6s ease-in-out infinite}
@@ -314,11 +322,24 @@ details[open] .faq-q:after{content:"–"}
 .mkband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
 .mkband .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(234,199,110,.5);font-family:var(--mont);font-size:.8rem}
 .mkband .mk-in{position:relative;z-index:2;padding:44px;max-width:640px}
-.mkband h2{color:#fff}
-.mkband p{color:#e7ecf4;margin-top:10px}
+.mkband h2{color:#fff;font-size:clamp(2.2rem,4.6vw,3.2rem)}
+.mkband .mk-sub{color:var(--gold-b);font-family:var(--serif);font-style:italic;font-size:1.35rem;margin-top:8px}
+.mkband p{color:#eef2f8;margin-top:12px;font-size:1.12rem;line-height:1.65}
+/* ---- Breiter CTA-Banner (hell, Gold-Effekt, Bewegung) ---- */
+.wide-banner{position:relative;overflow:hidden;margin-top:34px;border-radius:22px;padding:34px 40px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(253,250,244,.6));backdrop-filter:blur(18px);border:1px solid rgba(218,165,32,.5);
+  box-shadow:0 22px 55px rgba(10,22,40,.12),inset 0 1px 0 rgba(255,255,255,.9)}
+.wide-banner::before{content:"";position:absolute;inset:-2px;z-index:0;background:conic-gradient(from 0deg,transparent,rgba(218,165,32,.5),transparent 30%);animation:spin 6s linear infinite;opacity:.5}
+.wide-banner::after{content:"";position:absolute;inset:1.5px;z-index:0;border-radius:20px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(253,250,244,.8))}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wide-banner p,.wide-banner a{position:relative;z-index:1}
+.wide-banner p{flex:1;min-width:260px;font-family:var(--serif);font-size:1.35rem;color:var(--navy);line-height:1.3;margin:0}
+@media(max-width:600px){.wide-banner{padding:26px 24px}.wide-banner p{font-size:1.15rem}}
+
 /* ---- PINNWAND (austauschbare Themen) ---- */
-.board{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 20px;padding-top:10px}
-.pnote{position:relative;background:#fff;border-radius:7px;padding:22px 18px 18px;box-shadow:0 14px 30px rgba(10,22,40,.14);transition:box-shadow .25s ease;transform-origin:50% -8px;animation:sway1 4.2s ease-in-out infinite}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 20px;padding-top:10px}
+/* Wende-Karte: außen baumelt, innen dreht sich */
+.pnote{position:relative;height:190px;perspective:1000px;transform-origin:50% -8px;animation:sway1 4.2s ease-in-out infinite}
 .pnote:nth-child(4n+2){animation-name:sway2;animation-duration:4.8s}
 .pnote:nth-child(4n+3){animation-name:sway3;animation-duration:4.5s}
 .pnote:nth-child(4n+4){animation-name:sway4;animation-duration:5.1s}
@@ -326,12 +347,19 @@ details[open] .faq-q:after{content:"–"}
 @keyframes sway2{0%,100%{transform:rotate(2deg)}50%{transform:rotate(.7deg)}}
 @keyframes sway3{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(-.3deg)}}
 @keyframes sway4{0%,100%{transform:rotate(2.4deg)}50%{transform:rotate(1deg)}}
-.pnote:hover{animation-play-state:paused;transform:rotate(0deg) translateY(-6px);box-shadow:0 22px 44px rgba(10,22,40,.2);z-index:3}
+.pnote:hover{animation-play-state:paused;z-index:3}
 @media(prefers-reduced-motion:reduce){.pnote{animation:none}}
-.pnote .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#F3D98A,#DAA520 55%,#A87C0A);box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6);animation:pinGlow 3s ease-in-out infinite}
+.pn-inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;cursor:pointer}
+.pnote:hover .pn-inner,.pnote.flipped .pn-inner{transform:rotateY(180deg)}
+.pn-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;border-radius:7px;padding:22px 18px;box-shadow:0 14px 30px rgba(10,22,40,.14);display:flex;flex-direction:column}
+.pn-back{transform:rotateY(180deg);background:linear-gradient(160deg,#12233f,#0A1628);color:#eef2f8}
+.pn-face .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#F3D98A,#DAA520 55%,#A87C0A);box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6);animation:pinGlow 3s ease-in-out infinite}
 @keyframes pinGlow{0%,100%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 0 rgba(218,165,32,.5)}50%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 7px rgba(218,165,32,0)}}
-.pnote .tag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
-.pnote h3{font-family:var(--serif);font-size:1.1rem;color:var(--navy);line-height:1.2}
+.pn-face .tag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
+.pn-back .tag{color:var(--gold-b)}
+.pn-face h3{font-family:var(--serif);font-size:1.02rem;color:var(--navy);line-height:1.22}
+.pn-face .hint{margin-top:auto;font-family:var(--mont);font-size:.64rem;color:#9a8a6f;letter-spacing:.03em}
+.pn-back p{font-size:.86rem;line-height:1.45;margin:0;display:flex;align-items:center;height:100%}
 @media(max-width:860px){.board{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.board{grid-template-columns:1fr}}
 footer{background:#0A1628;color:#aeb8c8;text-align:center;padding:44px 24px;font-size:.88rem;position:relative;z-index:2}
@@ -399,7 +427,7 @@ footer a{color:var(--gold-b);text-decoration:none}
       <span class="badge-live"><span class="dot"></span> Live &amp; kostenlos · begrenzte Plätze</span>
       <h1>Verpass jetzt nicht den Anschluss.<br><span class="shimmer">Werde unverwechselbar.</span></h1>
       <p class="lead">KI verändert gerade jeden Markt. Die Frage ist nicht <i>ob</i> — sondern ob du dabei <b>untergehst oder herausstichst.</b> Wir zeigen dir Schritt für Schritt, wie du KI für dich nutzt und als Persönlichkeit unkopierbar wirst.</p>
-      <div class="u50"><span class="em">💪</span> Wenn zwei Frauen mit über 50 das schaffen — <b style="margin-left:4px">dann schaffst du das auch.</b></div>
+      <div class="u50"><span class="em">💪</span><span class="u50-txt"><span class="l1">Wenn zwei Frauen mit über 50 das schaffen …</span><span class="l2">… dann schaffst du es erst recht.</span></span></div>
 
       <!-- TERMIN (pulsierend, glass-dark) -->
       <div class="termin glass-dark">
@@ -449,17 +477,17 @@ footer a{color:var(--gold-b);text-decoration:none}
 </header>
 
 <!-- REASSURE -->
-<section class="sec">
+<section class="sec" id="reassure">
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Du bist nicht allein</span>
-      <h2>Gott sei Dank musst du da nicht mehr <span class="shimmer">allein durch.</span></h2>
-      <p>KI überrollt gerade alles — und viele fühlen sich abgehängt. Das Gute: Du musst weder Technik-Profi sein noch jünger werden. Du brauchst nur den richtigen ersten Schritt und Menschen an deiner Seite.</p>
+      <h2>Du bist kein Profi? <span class="shimmer">Damit bist du nicht allein.</span></h2>
+      <p>KI mischt gerade alle Karten neu. Viele fühlen sich abgehängt und haben Angst, den Anschluss zu verlieren. Keine Sorge: Du musst kein Technik-Profi sein. Du bekommst den Einblick und gehst mit uns Schritt für Schritt, damit dir nichts zu viel wird.</p>
     </div>
     <div class="grid-3">
-      <div class="glass card float"><div class="ic-lg">😮‍💨</div><h3>Kennst du das?</h3><p>„Alle reden von KI — und ich verstehe nur Bahnhof." Genau da holen wir dich ab.</p></div>
-      <div class="glass card float d"><div class="ic-lg">🚀</div><h3>Das Ziel</h3><p>KI als deinen persönlichen Beschleuniger nutzen — statt dich davon überrollen zu lassen.</p></div>
-      <div class="glass card float"><div class="ic-lg">🤝</div><h3>Das Versprechen</h3><p>Gemeinsam stark ist besser als allein stark. Du gehst mit einem klaren nächsten Schritt raus.</p></div>
+      <div class="glass card float"><div class="ic-lg">😮‍💨</div><h3>Kennst du das?</h3><p>„Alle reden von KI, und ich verstehe nur Bahnhof." Genau da holen wir dich ab und geben dir die ersten Einblicke, Schritt für Schritt.</p></div>
+      <div class="glass card float d"><div class="ic-lg">🚀</div><h3>Dein Ziel</h3><p>KI als deinen Rückenwind nutzen, statt dich davon überrollen zu lassen.</p></div>
+      <div class="glass card float"><div class="ic-lg">🤝</div><h3>Mein Versprechen</h3><p>Gemeinsam kommst du weiter als allein. Du gehst raus mit einer klaren Anleitung und deinen ersten Schritten: wie du mit Claude ein Freebie oder eine Landingpage baust.</p></div>
     </div>
   </div>
 </section>
@@ -472,8 +500,9 @@ footer a{color:var(--gold-b);text-decoration:none}
       <div class="ph">📷 Bild „Mensch &amp; KI"</div>
       <div class="mk-in">
         <span class="eyebrow" style="color:var(--gold-b)">Mensch &amp; KI</span>
-        <h2>Nicht Mensch <i>gegen</i> KI.<br><span class="shimmer">Mensch mit KI.</span></h2>
-        <p>KI ersetzt dich nicht — sie verstärkt das, was dich ausmacht. Genau das zeigen wir dir.</p>
+        <h2><span class="shimmer">KI trifft Herz.</span></h2>
+        <p class="mk-sub">Nicht Mensch gegen KI, sondern Mensch mit KI.</p>
+        <p>Die Zukunft kannst du nicht aufhalten, also nutze sie. KI ersetzt dich nicht, sie verstärkt genau das, was dich ausmacht. Wer sie nicht nutzt, wird in vielen Bereichen ersetzbar. In einem aber nie: als Mensch. Und das ist auch gut so.</p>
       </div>
     </div>
   </div>
@@ -484,15 +513,15 @@ footer a{color:var(--gold-b);text-decoration:none}
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Dein neuer Rückenwind</span>
-      <h2>Was du mit KI alles <span class="shimmer">machen kannst</span></h2>
-      <p>Stell dir vor, du hast ab morgen eine kluge Assistenz an deiner Seite — rund um die Uhr, für all das:</p>
+      <h2>Stell dir vor, du hast eine <span class="shimmer">kluge Assistentin</span></h2>
+      <p>Ab morgen an deiner Seite, rund um die Uhr. Möglich ist das für all diese Dinge und noch viel mehr:</p>
     </div>
     <div class="grid-3">
-      <div class="glass card"><div class="ic-lg">✍️</div><h3>Texte &amp; Ideen</h3><p>Posts, E-Mails, Angebote — in Minuten statt Stunden, in deiner Sprache.</p></div>
-      <div class="glass card"><div class="ic-lg">🎨</div><h3>Design &amp; Bilder</h3><p>Mit Claude Design Entwürfe &amp; Grafiken — ganz ohne Design-Studium.</p></div>
-      <div class="glass card"><div class="ic-lg">🧭</div><h3>Struktur &amp; Strategie</h3><p>Klarheit ins Angebot bringen und den nächsten Schritt planen.</p></div>
-      <div class="glass card"><div class="ic-lg">💬</div><h3>Kundengespräche</h3><p>Antworten vorbereiten, Einwände meistern, souverän wirken.</p></div>
-      <div class="glass card"><div class="ic-lg">⚙️</div><h3>Lästige Aufgaben</h3><p>Routine automatisieren — mehr Zeit für das, was nur du kannst.</p></div>
+      <div class="glass card"><div class="ic-lg">🖥️</div><h3>Landingpage erstellen</h3><p>Deine eigene Seite, die Kunden anzieht. Ohne Technik-Kopfschmerzen.</p></div>
+      <div class="glass card"><div class="ic-lg">🎁</div><h3>Freebie erstellen</h3><p>Ein kleines Geschenk, das aus Interessenten echte Kunden macht.</p></div>
+      <div class="glass card"><div class="ic-lg">✍️</div><h3>Social-Media-Beiträge</h3><p>Posts, die klingen wie du. In Minuten statt in Stunden.</p></div>
+      <div class="glass card"><div class="ic-lg">💬</div><h3>Texte &amp; E-Mails</h3><p>Angebote und Mails, die ankommen. In deiner Sprache.</p></div>
+      <div class="glass card"><div class="ic-lg">🎨</div><h3>Design &amp; Bilder</h3><p>Entwürfe und Grafiken mit Claude Design. Ganz ohne Studium.</p></div>
       <div class="glass card"><div class="ic-lg">🌟</div><h3>Deine Sichtbarkeit</h3><p>Unverwechselbar auftreten und aus der Masse herausstechen.</p></div>
     </div>
   </div>
@@ -580,6 +609,10 @@ footer a{color:var(--gold-b);text-decoration:none}
       <div class="glass fw"><span class="ic">🎤</span><div><h3>Redner &amp; Experten</h3><p>Deine Persönlichkeit hörbar machen — was keine KI kopiert.</p></div></div>
       <div class="glass fw"><span class="ic">❤️</span><div><h3>Alle, die nicht allein kämpfen wollen</h3><p>Weil gemeinsam stark einfach besser ist.</p></div></div>
     </div>
+    <div class="wide-banner">
+      <p>Wenn du dein Business liebst und auch morgen von deinen Kunden gefunden werden willst, dann ist das dein richtiger Einstieg.</p>
+      <a href="#anmelden" class="btn btn-gold">Ja, ich will dabei sein →</a>
+    </div>
   </div>
 </section>
 
@@ -659,9 +692,10 @@ footer a{color:var(--gold-b);text-decoration:none}
       <div class="glass col vor">
         <h3>Eher nicht, wenn du…</h3>
         <ul>
-          <li>glaubst, alles bleibt so wie es immer war</li>
-          <li>nur zuschauen, aber nichts umsetzen willst</li>
-          <li>schon KI-Profi bist und alles kannst</li>
+          <li>glaubst, dass Künstliche Intelligenz bald wieder verschwindet</li>
+          <li>nur zuschauen, aber nie etwas umsetzen willst</li>
+          <li>schon Profi bist und viel weiter als wir</li>
+          <li>lieber meckerst, statt Chancen zu sehen</li>
         </ul>
       </div>
     </div>
@@ -681,8 +715,8 @@ footer a{color:var(--gold-b);text-decoration:none}
         <div class="pic float"><img src="assets/claudia.jpg" alt="Claudia Conen"></div>
         <div>
           <h3>Claudia Conen</h3>
-          <div class="ro">KI-Managerin · Wirkung &amp; Positionierung</div>
-          <p>Sie macht Menschen unverwechselbar — mit hörbarer Persönlichkeit, die in Sekunden Vertrauen schafft. Bekannt aus RTL, Sat.1 &amp; „Power of AI".</p>
+          <div class="ro">KI-Managerin · Performance &amp; Positionierung</div>
+          <p>Seit über 35 Jahren hilft sie Menschen, ihre Unverwechselbarkeit zu erkennen und eine hörbare Persönlichkeit aufzubauen, die in Sekunden Vertrauen schafft. Mit Claude bringt sie diese Persönlichkeit sichtbar auf deine Website. Sie erklärt alles in einfacher Sprache und nimmt dich an die Hand, wenn du in die KI-Welt startest. Bekannt aus RTL, Sat.1 und „Power of AI".</p>
         </div>
       </div>
       <div class="glass hcard">
@@ -690,7 +724,7 @@ footer a{color:var(--gold-b);text-decoration:none}
         <div>
           <h3>Gabi Lindemann</h3>
           <div class="ro">Funnel-Bau-Expertin · KI-Expertin</div>
-          <p>Sie übersetzt KI in einfache, machbare Schritte — von Claude über Claude Code bis Claude Design. Damit du sofort loslegst, ganz ohne Technik-Angst.</p>
+          <p>Funnel-Bau-Expertin seit über 12 Jahren. Sie betreut Online-Kongresse und Websites, gestaltet mit Claude Design und bietet den Komplettservice. KI übersetzt sie in einfache Schritte, damit du sofort loslegst, ganz ohne Technik-Angst.</p>
         </div>
       </div>
     </div>
@@ -707,8 +741,9 @@ footer a{color:var(--gold-b);text-decoration:none}
     </div>
     <div class="grid-3">
       <div class="glass voice"><div class="stars">★★★★★</div><p>„Ich hatte solche Angst vor KI — nach dem Webinar habe ich am selben Abend meinen ersten Text mit Claude geschrieben. Mit 58!"</p><div class="who">Renate M. · <span>Coach</span></div></div>
-      <div class="glass voice"><div class="stars">★★★★★</div><p>„Endlich mal ohne Fachchinesisch. Claudia und Gabi nehmen dich wirklich an die Hand."</p><div class="who">Thomas K. · <span>Selbstständig</span></div></div>
+      <div class="glass voice"><div class="stars">★★★★★</div><p>„Die erste Landingpage nach der Anleitung selbst zu bauen, war ein echtes Erlebnis."</p><div class="who">Thomas K. · <span>Selbstständig</span></div></div>
       <div class="glass voice"><div class="stars">★★★★★</div><p>„Ich fühle mich nicht mehr allein mit dem ganzen KI-Thema. Das war Gold wert."</p><div class="who">Sabine L. · <span>Beraterin</span></div></div>
+      <div class="glass voice"><div class="stars">★★★★★</div><p>„Wie viele Facetten möglich sind und wie genau es mein eigenes Wording trifft, hat mich total begeistert."</p><div class="who">Petra B. · <span>Coach</span></div></div>
     </div>
   </div>
 </section>
@@ -731,43 +766,48 @@ footer a{color:var(--gold-b);text-decoration:none}
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Unsere Pinnwand</span>
-      <h2>Themen, die dich <span class="shimmer">weiterbringen</span></h2>
-      <p>Kostbare Impulse für die Business-Welt — wir tauschen die Themen regelmäßig aus.</p>
+      <h2>Die Fragen, die <span class="shimmer">alle stellen</span></h2>
+      <p>Tippe eine Karte an — die Antwort steht auf der Rückseite.</p>
     </div>
-    <!-- 👉 THEMEN EINFACH AUSTAUSCHEN: Text in .pnote ändern -->
+    <!-- 👉 FRAGE/ANTWORT einfach im .pn-face bzw. .pn-back ändern -->
     <div class="board">
-      <div class="pnote"><span class="pin"></span><span class="tag">Business</span><h3>Kostbare Tipps für die Business-Welt</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Klartext</span><h3>Kann KI mich ersetzen — und wo ist sie sinnvoll?</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Claude</span><h3>Claudes Geheimnisse — Einblicke, die kaum jemand kennt</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Positionierung</span><h3>Was macht dich unverwechselbar im KI-Zeitalter?</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Meistgefragt</span><h3>Was die meisten über KI &amp; Claude wissen wollen</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Tool-Tipp</span><h3>Welche KI-Tools wir außerdem nutzen</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Schritt für Schritt</span><h3>Dein erster KI-Workflow — ganz ohne Technik-Angst</h3></div>
-      <div class="pnote"><span class="pin"></span><span class="tag">Mindset</span><h3>Von Angst zu Neugier — in 3 einfachen Schritten</h3></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Unverwechselbar</span><h3>Wie werde ich im KI-Zeitalter unverwechselbar?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Indem du KI nutzt und trotzdem deine Persönlichkeit in den Mittelpunkt stellst. Genau das üben wir mit dir.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Claude</span><h3>Wofür ist Claude eigentlich gut?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Zum Schreiben, Planen und Gestalten: Texte, Landingpages, Freebies, Design. Alles, was dein Business sichtbar macht.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Webdesign</span><h3>Kann ich mit Claude eine Website bauen?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Ja. Mit Claude Design und Claude Code entsteht deine Seite, ohne dass du programmieren können musst.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Freebie</span><h3>Wie erstelle ich ein Freebie?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Wir zeigen dir Schritt für Schritt, wie du mit KI ein Freebie baust, das neue Kunden anzieht.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Über 50</span><h3>Schaffe ich das mit über 50?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Ja. Zwei Frauen über 50 machen es dir vor. Du brauchst kein Vorwissen, nur Neugier.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Sichtbarkeit</span><h3>Wie hebe ich mich aus der Masse heraus?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Über das, was keine KI kopieren kann: deine Stimme, deine Haltung, deine Geschichte.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Claude</span><h3>Claude, Claude Code, Claude Design: was ist der Unterschied?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Claude schreibt und denkt mit, Claude Code baut die Technik, Claude Design gestaltet. Wir erklären, wo du anfängst.</p></div>
+      </div></div>
+      <div class="pnote"><div class="pn-inner">
+        <div class="pn-face"><span class="pin"></span><span class="tag">Einstieg</span><h3>Womit fange ich als Einsteiger an?</h3><span class="hint">↺ Karte drehen</span></div>
+        <div class="pn-face pn-back"><span class="tag">Antwort</span><p>Mit einem ersten Schritt im Webinar. Danach bekommst du ein Starter-Set, mit dem du weitermachst.</p></div>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- MEISTGESUCHTE FRAGEN (SEO/GEO/LLM) -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sh">
-      <span class="eyebrow">Die meistgesuchten Fragen</span>
-      <h2>Was Menschen im <span class="shimmer">KI-Zeitalter</span> fragen</h2>
-      <p>Tippe eine Frage an — die Antwort erscheint.</p>
-    </div>
-    <div class="qgrid">
-      <details class="glass qtile"><summary><span>Wie hebe ich mich als Persönlichkeit aus der Masse heraus?</span><span class="q-ic">+</span></summary><div class="q-a">Indem du auf das setzt, was keine KI kopieren kann: deine Persönlichkeit, deine Stimme, deine Haltung. Im Webinar zeigen wir dir Schritt für Schritt, wie du genau das sichtbar machst — und unverwechselbar wirst.</div></details>
-      <details class="glass qtile"><summary><span>Schaffe ich es überhaupt noch, mit KI umzugehen?</span><span class="q-ic">+</span></summary><div class="q-a">Ja — garantiert. Du brauchst kein Technik-Studium und kein Vorwissen. Wenn zwei Frauen mit über 50 das schaffen, schaffst du das auch. Wir erklären alles langsam und in einfachen Schritten.</div></details>
-      <details class="glass qtile"><summary><span>Wofür ist Claude eigentlich nutzbar?</span><span class="q-ic">+</span></summary><div class="q-a">Claude ist eine KI, die dir beim Schreiben, Denken, Planen und Gestalten hilft: Texte, Ideen, Angebote, Struktur, sogar Design und Websites. Im Webinar siehst du live, wie einfach das geht.</div></details>
-      <details class="glass qtile"><summary><span>Kann ich KI lernen, auch wenn ich über 50 bin?</span><span class="q-ic">+</span></summary><div class="q-a">Absolut. Alter ist kein Hindernis — Erfahrung ist sogar ein Vorteil. Unsere Teilnehmer starten oft komplett bei null und haben noch am selben Abend ihr erstes Ergebnis.</div></details>
-      <details class="glass qtile"><summary><span>Wie werde ich im KI-Zeitalter unverwechselbar?</span><span class="q-ic">+</span></summary><div class="q-a">Indem du KI als Beschleuniger nutzt, aber deine menschliche Wirkung in den Mittelpunkt stellst. Genau diese Kombination — Technik + Persönlichkeit — ist der Kern dieses Webinars.</div></details>
-      <details class="glass qtile"><summary><span>Was ist der Unterschied zwischen Claude, Claude Code und Claude Design?</span><span class="q-ic">+</span></summary><div class="q-a">Claude ist die KI zum Schreiben &amp; Denken, Claude Code hilft beim Bauen von Websites/Technik, und Claude Design bei Grafiken &amp; Layout. Für Einsteiger erklären wir jedes einfach und zeigen, wo du anfängst.</div></details>
-      <details class="glass qtile"><summary><span>Wie nutze ich KI, ohne meine Persönlichkeit zu verlieren?</span><span class="q-ic">+</span></summary><div class="q-a">Die KI liefert die Rohform — du gibst ihr deine Stimme, deine Beispiele, dein Gefühl. So bleibt alles echt und unverwechselbar deins. Wir zeigen dir genau diesen Dreh.</div></details>
-      <details class="glass qtile"><summary><span>Womit fange ich als kompletter Einsteiger an?</span><span class="q-ic">+</span></summary><div class="q-a">Mit einem einzigen ersten Schritt — und den machst du im Webinar gemeinsam mit uns. Danach bekommst du ein Starter-Set, mit dem du sofort weitermachen kannst.</div></details>
-    </div>
-  </div>
-</section>
+<!-- (Fragen jetzt als Wende-Karten in der Pinnwand oben; FAQ-Schema für SEO bleibt) -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Wie hebe ich mich als Persönlichkeit aus der Masse heraus?","acceptedAnswer":{"@type":"Answer","text":"Indem du auf das setzt, was keine KI kopieren kann: deine Persönlichkeit, deine Stimme, deine Haltung. Im Webinar zeigen wir Schritt für Schritt, wie du das sichtbar machst und unverwechselbar wirst."}},
@@ -842,7 +882,7 @@ footer a{color:var(--gold-b);text-decoration:none}
 </section>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"EducationEvent","name":"Unverwechselbar mit KI — Kostenloses Live-Webinar","description":"KI verständlich Schritt für Schritt und wie du im KI-Zeitalter unverwechselbar wirst. Für Einsteiger und Business-Menschen, auch mit über 50.","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-07-30T19:00:00+02:00","location":{"@type":"VirtualLocation","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/"},"image":"https://claudiaconen.github.io/Webinar-Unverwechselbar/assets/hero-claudia-gabi.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/#anmelden"},"performer":[{"@type":"Person","name":"Claudia Conen","jobTitle":"KI-Managerin"},{"@type":"Person","name":"Gabi Lindemann","jobTitle":"Funnel-Bau-Expertin & KI-Expertin"}],"organizer":{"@type":"Person","name":"Claudia Conen","url":"https://claudiaconen.com"}}
+{"@context":"https://schema.org","@type":"EducationEvent","name":"Unverwechselbar mit KI — Kostenloses Live-Webinar","description":"KI verständlich Schritt für Schritt und wie du im KI-Zeitalter unverwechselbar wirst. Für Einsteiger und Business-Menschen, auch mit über 50.","eventAttendanceMode":"https://schema.org/OnlineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-07-30T18:18:00+02:00","location":{"@type":"VirtualLocation","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/"},"image":"https://claudiaconen.github.io/Webinar-Unverwechselbar/assets/hero-claudia-gabi.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://claudiaconen.github.io/Webinar-Unverwechselbar/#anmelden"},"performer":[{"@type":"Person","name":"Claudia Conen","jobTitle":"KI-Managerin"},{"@type":"Person","name":"Gabi Lindemann","jobTitle":"Funnel-Bau-Expertin & KI-Expertin"}],"organizer":{"@type":"Person","name":"Claudia Conen","url":"https://claudiaconen.com"}}
 </script>
 
 <!-- STICKY-CTA (Handy) -->
@@ -867,8 +907,8 @@ footer a{color:var(--gold-b);text-decoration:none}
 /* ============================================================
    👉 HIER DEN TERMIN ÄNDERN — nur diese 2 Zeilen anpassen:
    ============================================================ */
-const WEBINAR_DATUM   = "2026-07-30T19:00:00";
-const WEBINAR_ANZEIGE = "Donnerstag, 30. Juli 2026 · 19:00 Uhr";
+const WEBINAR_DATUM   = "2026-07-30T18:18:00";
+const WEBINAR_ANZEIGE = "Donnerstag, 30. Juli 2026 · 18:18 Uhr";
 /* ============================================================ */
 document.getElementById('terminText').textContent = WEBINAR_ANZEIGE;
 var mini=document.getElementById('terminTextMini'); if(mini) mini.textContent=WEBINAR_ANZEIGE;
@@ -915,6 +955,11 @@ function toggleVoice(){
   build(document.getElementById('rowL'),namesL);
   build(document.getElementById('rowR'),namesR);
 })();
+
+// PINNWAND: Karten per Tipp drehen (Handy)
+document.querySelectorAll('.board .pnote').forEach(function(c){
+  c.addEventListener('click',function(){c.classList.toggle('flipped');});
+});
 
 // MINI-CHECK (Gamification)
 (function(){
