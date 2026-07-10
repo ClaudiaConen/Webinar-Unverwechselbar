@@ -127,7 +127,22 @@ nav{position:sticky;top:0;z-index:50;background:rgba(251,246,236,.78);backdrop-f
 .voicebar .wave i:nth-child(2){animation-delay:.15s}.voicebar .wave i:nth-child(3){animation-delay:.3s}.voicebar .wave i:nth-child(4){animation-delay:.45s}
 @keyframes wv{0%,100%{height:5px}50%{height:18px}}
 
-/* HOST DUO — Polaroid-Stil (Marken-Element) */
+/* HERO-FOTO — starker, professioneller erster Eindruck */
+.herofoto-wrap{position:relative;width:100%;max-width:430px;margin-left:auto}
+.herofoto{position:relative;overflow:hidden;width:100%;height:540px;border-radius:24px;border:1px solid rgba(218,165,32,.5);background:linear-gradient(160deg,#16294a,#0A1628);box-shadow:0 34px 80px rgba(10,22,40,.3),inset 0 1px 0 rgba(234,199,110,.25)}
+.herofoto img{width:100%;height:100%;object-fit:cover;display:block}
+.herofoto .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--gold-b);text-align:center;font-family:var(--mont);font-size:.95rem;padding:20px}
+.herofoto .ph .big{font-size:2.6rem}
+.herofoto .ph .hint{font-size:.72rem;color:rgba(234,199,110,.6);font-weight:500}
+.herofoto::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:skew(-16deg);animation:sweep 6.5s ease-in-out infinite;pointer-events:none}
+.herofoto .cred{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(10,22,40,.72);backdrop-filter:blur(8px);border:1px solid rgba(218,165,32,.35);border-radius:12px;padding:9px 12px;color:#f3ede0;font-family:var(--mont);font-size:.74rem;font-weight:600;text-align:center}
+.herofoto .cred b{color:var(--gold-b)}
+.hf-badge{position:absolute;top:-16px;right:-16px;background:linear-gradient(145deg,#F3D98A,#DAA520 60%,#A87C0A);color:#2a2008;font-family:var(--mont);font-weight:800;font-size:.82rem;line-height:1.15;text-align:center;border-radius:16px;padding:12px 14px;box-shadow:0 12px 26px rgba(218,165,32,.45);animation:float 5s ease-in-out infinite}
+.hf-badge b{font-family:var(--serif);font-size:1.5rem;display:block}
+.hf-badge span{font-weight:600;font-size:.72rem}
+@media(max-width:860px){.herofoto-wrap{margin:0 auto}}
+
+/* (Polaroid-Stil weiter unten nutzbar) */
 .duo{position:relative;padding-top:14px}
 .duo-row{display:flex;gap:26px;justify-content:center}
 /* Polaroid */
@@ -290,12 +305,16 @@ details[open] .faq-q:after{content:"–"}
 .mkband p{color:#e7ecf4;margin-top:10px}
 /* ---- PINNWAND (austauschbare Themen) ---- */
 .board{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 20px;padding-top:10px}
-.pnote{position:relative;background:#fff;border-radius:7px;padding:22px 18px 18px;box-shadow:0 14px 30px rgba(10,22,40,.14);transition:transform .25s ease,box-shadow .25s ease}
-.pnote:nth-child(4n+1){transform:rotate(-2.5deg)}
-.pnote:nth-child(4n+2){transform:rotate(1.8deg)}
-.pnote:nth-child(4n+3){transform:rotate(-1.4deg)}
-.pnote:nth-child(4n+4){transform:rotate(2.2deg)}
-.pnote:hover{transform:rotate(0deg) translateY(-6px);box-shadow:0 22px 44px rgba(10,22,40,.2);z-index:3}
+.pnote{position:relative;background:#fff;border-radius:7px;padding:22px 18px 18px;box-shadow:0 14px 30px rgba(10,22,40,.14);transition:box-shadow .25s ease;transform-origin:50% -8px;animation:sway1 4.2s ease-in-out infinite}
+.pnote:nth-child(4n+2){animation-name:sway2;animation-duration:4.8s}
+.pnote:nth-child(4n+3){animation-name:sway3;animation-duration:4.5s}
+.pnote:nth-child(4n+4){animation-name:sway4;animation-duration:5.1s}
+@keyframes sway1{0%,100%{transform:rotate(-2.6deg)}50%{transform:rotate(-1.2deg)}}
+@keyframes sway2{0%,100%{transform:rotate(2deg)}50%{transform:rotate(.7deg)}}
+@keyframes sway3{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(-.3deg)}}
+@keyframes sway4{0%,100%{transform:rotate(2.4deg)}50%{transform:rotate(1deg)}}
+.pnote:hover{animation-play-state:paused;transform:rotate(0deg) translateY(-6px);box-shadow:0 22px 44px rgba(10,22,40,.2);z-index:3}
+@media(prefers-reduced-motion:reduce){.pnote{animation:none}}
 .pnote .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 40% 32%,#F3D98A,#DAA520 55%,#A87C0A);box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6);animation:pinGlow 3s ease-in-out infinite}
 @keyframes pinGlow{0%,100%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 0 rgba(218,165,32,.5)}50%{box-shadow:0 4px 8px rgba(0,0,0,.32),inset 0 1px 2px rgba(255,255,255,.6),0 0 0 7px rgba(218,165,32,0)}}
 .pnote .tag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
@@ -394,21 +413,14 @@ footer a{color:var(--gold-b);text-decoration:none}
       <audio id="voiceAudio" preload="none" src="assets/voiceover.mp3"></audio>
     </div>
 
-    <!-- HOST-DUO im Polaroid-Marken-Stil -->
-    <div class="duo">
-      <div class="duo-plus">+</div>
-      <div class="duo-row">
-        <div class="polaroid tl float">
-          <span class="pin"></span>
-          <div class="pic"><!-- FOTO CLAUDIA: <img src="assets/claudia.jpg" alt="Claudia Conen"> --><div class="ph"><span class="big">📷</span>Dein Foto</div></div>
-          <div class="cap">Claudia Conen</div>
-        </div>
-        <div class="polaroid tr float d">
-          <span class="pin"></span>
-          <div class="pic"><!-- FOTO GABI: <img src="assets/gabi.jpg" alt="Gabi Lindemann"> --><div class="ph"><span class="big">📷</span>Dein Foto</div></div>
-          <div class="cap">Gabi Lindemann</div>
-        </div>
+    <!-- HERO-FOTO: starkes, professionelles Bild (Claudia & Gabi) -->
+    <div class="herofoto-wrap">
+      <div class="herofoto">
+        <!-- FOTO: <img src="assets/hero-claudia-gabi.jpg" alt="Claudia Conen & Gabi Lindemann"> -->
+        <div class="ph"><span class="big">📷</span><span>Professionelles Foto<br>Claudia &amp; Gabi</span><span class="hint">quer oder hoch · warmes Licht</span></div>
+        <div class="cred">★★★★★ &nbsp;bekannt aus <b>RTL · Sat.1 · „Power of AI"</b></div>
       </div>
+      <div class="hf-badge"><b>2</b> Expertinnen<br><span>1 klares Ziel</span></div>
     </div>
   </div>
 </header>
