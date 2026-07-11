@@ -302,7 +302,8 @@ details[open] .faq-q:after{content:"–"}
 .mq:hover .mq-row{animation-play-state:paused}
 @keyframes mqL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes mqR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-.mq-item{width:150px;height:150px;border-radius:18px;flex-shrink:0;position:relative;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 12px 30px rgba(10,22,40,.18)}
+.mq-item{width:320px;height:214px;border-radius:18px;flex-shrink:0;position:relative;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 14px 34px rgba(10,22,40,.2)}
+.mq-row{gap:22px}
 .mq-item img{width:100%;height:100%;object-fit:cover}
 .mq-item .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold-b);font-family:var(--mont);font-size:.66rem;text-align:center;gap:4px}
 .mq-item .ph .big{font-size:1.5rem}
@@ -516,7 +517,6 @@ footer a{color:var(--gold-b);text-decoration:none}
     </div>
   </div>
   <div class="mq" id="mqTop"><div class="mq-row l" id="rowL"></div></div>
-  <div class="mq" id="mqBot"><div class="mq-row r" id="rowR"></div></div>
 </section>
 
 <!-- MENSCH & KI BILDBAND -->
@@ -960,17 +960,12 @@ function toggleVoice(){
 
 // FOTO-SLIDER mit echten Fotos (weitere einfach in assets/menschen/ ablegen und hier ergänzen)
 (function(){
-  var picsL=['p1.jpg','p2.jpg','p3.jpg','p4.jpg'];
-  var picsR=['p5.jpg','p6.jpg','p7.jpg','p8.jpg'];
-  function build(row,pics){
-    if(!row) return; var html='';
-    for(var d=0;d<3;d++){ pics.forEach(function(p){
-      html+='<div class="mq-item"><img src="assets/menschen/'+p+'" alt="" loading="lazy"></div>';
-    });}
-    row.innerHTML=html;
-  }
-  build(document.getElementById('rowL'),picsL);
-  build(document.getElementById('rowR'),picsR);
+  var pics=['e1.jpg','e2.jpg','e3.jpg','e4.jpg','e5.jpg','e6.jpg'];
+  var row=document.getElementById('rowL'); if(!row) return; var html='';
+  for(var d=0;d<2;d++){ pics.forEach(function(p){
+    html+='<div class="mq-item"><img src="assets/menschen/'+p+'" alt="" loading="lazy"></div>';
+  });}
+  row.innerHTML=html;
 })();
 
 // PINNWAND: Karten per Tipp drehen (Handy)
