@@ -340,6 +340,28 @@ details[open] .faq-q:after{content:"–"}
 .mkband h2{color:#fff;font-size:clamp(2.2rem,4.6vw,3.2rem)}
 .mkband .mk-sub{color:var(--gold-b);font-family:var(--serif);font-style:italic;font-size:1.35rem;margin-top:8px}
 .mkband p{color:#eef2f8;margin-top:12px;font-size:1.12rem;line-height:1.65}
+/* ---- MANIFEST: animierte Schrift ---- */
+.manifest{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 50% -10%,rgba(234,199,110,.14),transparent 60%),linear-gradient(165deg,#0A1628,#12233f 60%,#0A1628);padding:clamp(72px,11vw,130px) 0;text-align:center}
+.manifest .wrap{position:relative;z-index:2;max-width:920px}
+.manifest .mf-orb{position:absolute;border-radius:50%;filter:blur(10px);opacity:.5;pointer-events:none;z-index:1}
+.manifest .mf-orb.a{width:300px;height:300px;left:-70px;top:40px;background:radial-gradient(circle,rgba(234,199,110,.5),transparent 70%);animation:drift 20s ease-in-out infinite}
+.manifest .mf-orb.b{width:340px;height:340px;right:-80px;bottom:20px;background:radial-gradient(circle,rgba(218,165,32,.4),transparent 70%);animation:drift 24s ease-in-out infinite reverse}
+.mf-eyebrow{display:inline-block;font-family:var(--mont);text-transform:uppercase;letter-spacing:.28em;font-size:.76rem;font-weight:800;color:var(--gold-b);margin-bottom:26px;opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.manifest.on .mf-eyebrow{opacity:1;transform:none}
+.mf-lines{font-family:var(--serif);color:#f5f0e6;font-size:clamp(1.35rem,3vw,2.15rem);line-height:1.4;font-weight:600}
+.mf-line{display:block;margin:2px 0;opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease}
+.manifest.on .mf-line{opacity:1;transform:none;filter:blur(0)}
+.mf-line.mf-soft{color:#c6d0e0;font-size:.82em}
+.mf-line.mf-big{font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;margin-top:22px;line-height:1.15}
+.manifest.on .mf-line:nth-child(1){transition-delay:.05s}
+.manifest.on .mf-line:nth-child(2){transition-delay:.55s}
+.manifest.on .mf-line:nth-child(3){transition-delay:.9s}
+.manifest.on .mf-line:nth-child(4){transition-delay:1.4s}
+.manifest.on .mf-line:nth-child(5){transition-delay:2s}
+.manifest.on .mf-line:nth-child(6){transition-delay:2.5s}
+.manifest.on .mf-line:nth-child(7){transition-delay:2.9s}
+.manifest.on .mf-line:nth-child(8){transition-delay:3.5s}
+@media(prefers-reduced-motion:reduce){.mf-line,.mf-eyebrow{transition:none!important;opacity:1!important;transform:none!important;filter:none!important}.manifest .mf-orb{animation:none}}
 /* ---- Breiter CTA-Banner (hell, Gold-Effekt, Bewegung) ---- */
 .wide-banner{position:relative;overflow:hidden;margin-top:34px;border-radius:22px;padding:34px 40px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
   background:linear-gradient(145deg,rgba(255,255,255,.85),rgba(253,250,244,.6));backdrop-filter:blur(18px);border:1px solid rgba(218,165,32,.5);
@@ -544,8 +566,26 @@ footer a{color:var(--gold-b);text-decoration:none}
         <span class="eyebrow" style="color:var(--gold-b)">Mensch &amp; KI</span>
         <h2><span class="shimmer">KI trifft Herz.</span></h2>
         <p class="mk-sub">Nicht Mensch gegen KI, sondern Mensch mit KI.</p>
-        <p>Die Zukunft kannst du nicht aufhalten, also nutze sie. KI ersetzt dich nicht, sie verstärkt genau das, was dich ausmacht. Wer sie nicht nutzt, wird in vielen Bereichen ersetzbar. In einem aber nie: als Mensch. Und das ist auch gut so.</p>
+        <p>Nicht die Technik macht den Unterschied — sondern der Mensch, der sie führt. Genau da setzen wir an.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFEST (animierte Schrift) -->
+<section class="manifest" id="manifest">
+  <span class="mf-orb a"></span><span class="mf-orb b"></span>
+  <div class="wrap">
+    <span class="mf-eyebrow">Dein Moment</span>
+    <div class="mf-lines">
+      <span class="mf-line">Die Zukunft kommt — ob du willst oder nicht.</span>
+      <span class="mf-line">Nutze den Fortschritt. Aufhalten kannst du ihn nicht,</span>
+      <span class="mf-line">und er entscheidet über deinen Erfolg mit.</span>
+      <span class="mf-line">KI ersetzt dich nicht. Sie <span class="shimmer">verstärkt</span> das, was dich ausmacht.</span>
+      <span class="mf-line">In einem Punkt bleibst du unersetzbar: <span class="shimmer">als Mensch.</span></span>
+      <span class="mf-line mf-soft">Und das ist auch gut so.</span>
+      <span class="mf-line mf-soft">Auch als Einsteiger bist du herzlich willkommen.</span>
+      <span class="mf-line mf-big"><span class="shimmer">Jetzt</span> ist der richtige Moment.</span>
     </div>
   </div>
 </section>
@@ -804,6 +844,46 @@ footer a{color:var(--gold-b);text-decoration:none}
           <div class="ro">Funnel-Bau-Expertin · KI-Expertin</div>
           <p>Funnel-Bau-Expertin seit über 12 Jahren. Sie betreut Online-Kongresse und Websites, gestaltet mit Claude Design und bietet den Komplettservice. KI übersetzt sie in einfache Schritte, damit du sofort loslegst, ganz ohne Technik-Angst.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTREDNER -->
+<section class="sec">
+  <style>
+  .guest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .guest{overflow:hidden;padding:0}
+  .guest .gmedia{position:relative;aspect-ratio:4/3;background:linear-gradient(160deg,#12233f,#0A1628);display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .guest .gmedia img,.guest .gmedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .guest .gmedia .gplay{position:relative;z-index:2;width:52px;height:52px;border-radius:50%;background:rgba(218,165,32,.95);color:#2a2008;display:flex;align-items:center;justify-content:center;font-size:1.1rem;padding-left:3px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+  .guest .gph{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--mont);font-size:.7rem;color:var(--gold-b)}
+  .guest .gbody{padding:20px 22px 24px}
+  .guest .gtag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);background:#FBF1D9;border:1px solid rgba(218,165,32,.35);border-radius:20px;padding:3px 12px;margin-bottom:8px}
+  .guest h3{font-family:var(--serif);color:var(--navy);font-size:1.25rem;margin:0 0 2px}
+  .guest .grole{font-family:var(--mont);font-size:.74rem;letter-spacing:.04em;color:var(--gold-t);font-weight:600;margin-bottom:8px}
+  .guest .gbody p{font-size:.94rem;color:var(--ink);margin:0}
+  @media(max-width:860px){.guest-grid{grid-template-columns:1fr}}
+  </style>
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Special Guests</span>
+      <h2>Unsere <span class="shimmer">Gastredner</span></h2>
+      <p>Zu jedem Termin laden wir Expertinnen und Experten zu spannenden KI-Themen ein. Ein Blick auf unsere Gäste:</p>
+    </div>
+    <!-- 👉 GAST HINZUFÜGEN: Karte kopieren. Bild: <img src="assets/gaeste/name.jpg"> · Video: <video ...> · sonst Play-Platzhalter -->
+    <div class="guest-grid">
+      <div class="glass guest">
+        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/1.jpg / .mp4')"><!-- <img src="assets/gaeste/1.jpg" alt=""> --><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
+        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
+      </div>
+      <div class="glass guest">
+        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/2.jpg / .mp4')"><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
+        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
+      </div>
+      <div class="glass guest">
+        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/3.jpg / .mp4')"><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
+        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
       </div>
     </div>
   </div>
@@ -1092,6 +1172,15 @@ document.querySelectorAll('.board .pnote').forEach(function(c){
     else {res.innerHTML='🎯 <b>100% Match!</b> Verpass es auf keinen Fall.';cta.style.display='inline-block';}
   }
   chips.forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('on');update();});});
+})();
+
+(function(){
+  var m=document.getElementById('manifest'); if(!m)return;
+  function play(){m.classList.add('on');}
+  if(!('IntersectionObserver' in window)){play();return;}
+  var mo=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){play();mo.disconnect();}})},{threshold:.35});
+  mo.observe(m);
+  setTimeout(play,6000); // Sicherheits-Fallback
 })();
 
 (function(){
