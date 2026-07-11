@@ -279,15 +279,17 @@ details[open] .faq-q:after{content:"–"}
 .regbox{padding:50px 42px;max-width:660px;margin:0 auto;text-align:center;position:relative}
 .regbox .names{font-family:var(--serif);font-weight:700;color:var(--navy);white-space:nowrap;font-size:1.02rem;margin-top:4px}
 .regbox .names b{color:var(--gold-d)}
-.rform textarea{font-family:var(--sans);font-size:1rem;padding:14px 18px;border:1.5px solid var(--line);border-radius:12px;background:rgba(255,255,255,.8);color:var(--navy);resize:vertical;min-height:70px}
-.rform textarea:focus{outline:none;border-color:var(--gold)}
+.rform textarea{font-family:var(--sans);font-size:1rem;padding:14px 18px;border:1.5px solid rgba(234,199,110,.4);border-radius:12px;background:linear-gradient(160deg,#12233f,#0A1628);color:#f3ede0;resize:vertical;min-height:70px}
+.rform textarea::placeholder{color:#9fb0c8}
+.rform textarea:focus{outline:none;border-color:var(--gold-b);box-shadow:0 0 0 3px rgba(218,165,32,.25)}
 .rform .opt{font-family:var(--mont);font-size:.76rem;color:var(--gold-t);text-align:left;margin:2px 2px -4px;font-weight:600}
 .regbox .mini-termin{display:inline-flex;align-items:center;gap:8px;font-family:var(--mont);font-weight:800;font-size:.8rem;color:#2a2008;background:linear-gradient(180deg,#F3D98A,#DAA520);padding:8px 18px;border-radius:30px;margin-bottom:14px}
 .regbox h2{font-size:clamp(1.9rem,3.8vw,2.6rem);margin-bottom:8px}
 .regbox p{margin-bottom:22px}
 .rform{display:flex;flex-direction:column;gap:12px;max-width:430px;margin:0 auto}
-.rform input{font-family:var(--sans);font-size:1rem;padding:16px 18px;border:1.5px solid var(--line);border-radius:12px;background:rgba(255,255,255,.8);color:var(--navy)}
-.rform input:focus{outline:none;border-color:var(--gold)}
+.rform input{font-family:var(--sans);font-size:1rem;padding:16px 18px;border:1.5px solid rgba(234,199,110,.4);border-radius:12px;background:linear-gradient(160deg,#12233f,#0A1628);color:#f3ede0}
+.rform input::placeholder{color:#9fb0c8}
+.rform input:focus{outline:none;border-color:var(--gold-b);box-shadow:0 0 0 3px rgba(218,165,32,.25)}
 .rform .btn{margin-top:6px}
 .rnote{font-size:.82rem;color:var(--ink);margin-top:14px}
 
@@ -909,6 +911,19 @@ footer a{color:var(--gold-b);text-decoration:none}
       </div>
       <a href="#anmelden" class="btn btn-gold">Jetzt kostenlos starten →</a>
     </div>
+  </div>
+</section>
+
+<!-- CROSS-PROMO: Redner-Raum -->
+<section class="sec" style="padding:20px 0 60px">
+  <div class="wrap">
+    <a href="https://redner-raum.netlify.app" target="_blank" rel="noopener" class="glass" style="display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;padding:22px 28px;text-decoration:none">
+      <div style="flex:1;min-width:260px">
+        <span style="font-family:var(--mont);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-t)">Auch spannend für dich</span>
+        <div style="font-family:var(--serif);color:var(--navy);font-size:1.3rem;margin-top:2px">🎤 Der Redner-Raum — für Rhetorik, Stimme &amp; Wirkung im Business</div>
+      </div>
+      <span class="btn btn-ghost" style="pointer-events:none">Zum Redner-Raum →</span>
+    </a>
   </div>
 </section>
 
