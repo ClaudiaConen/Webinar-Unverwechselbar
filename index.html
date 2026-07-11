@@ -831,6 +831,38 @@ footer a{color:var(--gold-b);text-decoration:none}
 ]}
 </script>
 
+<!-- FEEDBACK-VIDEOS (Platzhalter) -->
+<section class="sec">
+  <style>
+  .fbv-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .fbv-thumb{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;border:2px solid rgba(255,255,255,.7);background:linear-gradient(160deg,#12233f,#0A1628);box-shadow:0 14px 34px rgba(10,22,40,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .25s}
+  .fbv-thumb:hover{transform:translateY(-5px)}
+  .fbv-thumb video,.fbv-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .fbv-thumb .fplay{position:relative;z-index:2;width:54px;height:54px;border-radius:50%;background:rgba(218,165,32,.95);color:#2a2008;display:flex;align-items:center;justify-content:center;font-size:1.15rem;padding-left:4px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+  .fbv-thumb .fplay::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(234,199,110,.7);animation:vpulse 2s ease-out infinite}
+  .fbv-thumb .fph{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:var(--mont);font-size:.7rem;letter-spacing:.06em;color:var(--gold-b)}
+  .fbv-cap{font-family:var(--mont);font-weight:600;font-size:.8rem;color:var(--navy);text-align:center;margin-top:10px}
+  .fbv-cap span{display:block;color:var(--gold-t);font-weight:500;font-size:.72rem}
+  @media(max-width:900px){.fbv-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.fbv-grid{grid-template-columns:1fr}}
+  </style>
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Echte Stimmen</span>
+      <h2>Feedback-<span class="shimmer">Videos</span></h2>
+      <p>Bald hier: kurze Videos von Teilnehmern. Tippe an — Videos einfach einsetzen.</p>
+    </div>
+    <div class="fbv-grid">
+      <div class="fbv"><div class="fbv-thumb" onclick="alert('🎬 Feedback-Video 1 hier einsetzen: assets/feedback/1.mp4 oder YouTube/Vimeo-Link.')"><!-- VIDEO 1: <video controls playsinline poster="assets/feedback/1.jpg"><source src="assets/feedback/1.mp4" type="video/mp4"></video> --><span class="fplay">&#9654;</span><span class="fph">Video 1</span></div><div class="fbv-cap">Name<span>Rolle / Firma</span></div></div>
+      <div class="fbv"><div class="fbv-thumb" onclick="alert('🎬 Feedback-Video 2 hier einsetzen: assets/feedback/2.mp4 oder YouTube/Vimeo-Link.')"><!-- VIDEO 2 --><span class="fplay">&#9654;</span><span class="fph">Video 2</span></div><div class="fbv-cap">Name<span>Rolle / Firma</span></div></div>
+      <div class="fbv"><div class="fbv-thumb" onclick="alert('🎬 Feedback-Video 3 hier einsetzen: assets/feedback/3.mp4 oder YouTube/Vimeo-Link.')"><!-- VIDEO 3 --><span class="fplay">&#9654;</span><span class="fph">Video 3</span></div><div class="fbv-cap">Name<span>Rolle / Firma</span></div></div>
+      <div class="fbv"><div class="fbv-thumb" onclick="alert('🎬 Feedback-Video 4 hier einsetzen: assets/feedback/4.mp4 oder YouTube/Vimeo-Link.')"><!-- VIDEO 4 --><span class="fplay">&#9654;</span><span class="fph">Video 4</span></div><div class="fbv-cap">Name<span>Rolle / Firma</span></div></div>
+      <div class="fbv"><div class="fbv-thumb" onclick="alert('🎬 Feedback-Video 5 hier einsetzen: assets/feedback/5.mp4 oder YouTube/Vimeo-Link.')"><!-- VIDEO 5 --><span class="fplay">&#9654;</span><span class="fph">Video 5</span></div><div class="fbv-cap">Name<span>Rolle / Firma</span></div></div>
+    </div>
+  </div>
+</section>
+
+
 <!-- BONUS -->
 <section class="sec">
   <div class="wrap">
