@@ -852,39 +852,28 @@ footer a{color:var(--gold-b);text-decoration:none}
 <!-- GASTREDNER -->
 <section class="sec">
   <style>
-  .guest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .guest{overflow:hidden;padding:0}
-  .guest .gmedia{position:relative;aspect-ratio:4/3;background:linear-gradient(160deg,#12233f,#0A1628);display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .guest .gmedia img,.guest .gmedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .guest .gmedia .gplay{position:relative;z-index:2;width:52px;height:52px;border-radius:50%;background:rgba(218,165,32,.95);color:#2a2008;display:flex;align-items:center;justify-content:center;font-size:1.1rem;padding-left:3px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
-  .guest .gph{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--mont);font-size:.7rem;color:var(--gold-b)}
-  .guest .gbody{padding:20px 22px 24px}
-  .guest .gtag{display:inline-block;font-family:var(--mont);font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);background:#FBF1D9;border:1px solid rgba(218,165,32,.35);border-radius:20px;padding:3px 12px;margin-bottom:8px}
-  .guest h3{font-family:var(--serif);color:var(--navy);font-size:1.25rem;margin:0 0 2px}
-  .guest .grole{font-family:var(--mont);font-size:.74rem;letter-spacing:.04em;color:var(--gold-t);font-weight:600;margin-bottom:8px}
-  .guest .gbody p{font-size:.94rem;color:var(--ink);margin:0}
-  @media(max-width:860px){.guest-grid{grid-template-columns:1fr}}
+  .guest-feature{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;overflow:hidden;padding:0;max-width:920px;margin:0 auto}
+  .guest-feature .gmedia{position:relative;min-height:340px;background:linear-gradient(160deg,#12233f,#0A1628);display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .guest-feature .gmedia img,.guest-feature .gmedia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .guest-feature .gmedia .gplay{position:relative;z-index:2;width:60px;height:60px;border-radius:50%;background:rgba(218,165,32,.95);color:#2a2008;display:flex;align-items:center;justify-content:center;font-size:1.25rem;padding-left:3px;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+  .guest-feature .gph{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-family:var(--mont);font-size:.72rem;color:var(--gold-b)}
+  .guest-feature .gbody{padding:34px 38px;display:flex;flex-direction:column;justify-content:center}
+  .guest-feature .gtag{align-self:flex-start;font-family:var(--mont);font-weight:700;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);background:#FBF1D9;border:1px solid rgba(218,165,32,.35);border-radius:20px;padding:4px 13px;margin-bottom:12px}
+  .guest-feature h3{font-family:var(--serif);color:var(--navy);font-size:1.55rem;margin:0 0 3px}
+  .guest-feature .grole{font-family:var(--mont);font-size:.8rem;letter-spacing:.04em;color:var(--gold-t);font-weight:600;margin-bottom:12px}
+  .guest-feature .gbody p{font-size:1rem;color:var(--ink);margin:0;line-height:1.6}
+  @media(max-width:760px){.guest-feature{grid-template-columns:1fr}.guest-feature .gmedia{min-height:260px}}
   </style>
   <div class="wrap">
     <div class="sh">
-      <span class="eyebrow">Special Guests</span>
-      <h2>Unsere <span class="shimmer">Gastredner</span></h2>
-      <p>Zu jedem Termin laden wir Expertinnen und Experten zu spannenden KI-Themen ein. Ein Blick auf unsere Gäste:</p>
+      <span class="eyebrow">Special Guest</span>
+      <h2>Unser <span class="shimmer">Gastredner</span></h2>
+      <p>Zu diesem Termin haben wir einen besonderen Gast eingeladen – mit einem spannenden Impuls rund um KI:</p>
     </div>
-    <!-- 👉 GAST HINZUFÜGEN: Karte kopieren. Bild: <img src="assets/gaeste/name.jpg"> · Video: <video ...> · sonst Play-Platzhalter -->
-    <div class="guest-grid">
-      <div class="glass guest">
-        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/1.jpg / .mp4')"><!-- <img src="assets/gaeste/1.jpg" alt=""> --><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
-        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
-      </div>
-      <div class="glass guest">
-        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/2.jpg / .mp4')"><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
-        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
-      </div>
-      <div class="glass guest">
-        <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/3.jpg / .mp4')"><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
-        <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du mit?</p></div>
-      </div>
+    <!-- 👉 GAST EINSETZEN: Bild: <img src="assets/gaeste/gast.jpg" alt="Name"> · Video: <video controls playsinline poster="assets/gaeste/gast.jpg"><source src="assets/gaeste/gast.mp4" type="video/mp4"></video> · sonst bleibt der Play-Platzhalter -->
+    <div class="glass guest-feature">
+      <div class="gmedia" onclick="alert('🎬 Gastredner-Bild oder -Video hier einsetzen: assets/gaeste/gast.jpg oder assets/gaeste/gast.mp4')"><!-- <img src="assets/gaeste/gast.jpg" alt=""> --><span class="gplay">&#9654;</span><span class="gph">Bild / Video</span></div>
+      <div class="gbody"><span class="gtag">KI-Thema</span><h3>Name des Gasts</h3><div class="grole">Expertise / Firma</div><p>Kurzer Text: Worüber spricht dieser Gast und was nimmst du konkret aus seinem Impuls mit?</p></div>
     </div>
   </div>
 </section>
